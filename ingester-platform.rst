@@ -82,9 +82,9 @@ ingester will need a domain object in the ``jcudc24ingesterapi.models.data_sourc
 in the ``dc24_ingester_platform.ingester.data_sources`` module. The domain object will need to have each of the
 valid configuration parameters as Python properties, or our ``typed`` properties.
 
-^^^^^^^
-Testing
-^^^^^^^
+-----------------------------
+Testing from the command line
+-----------------------------
 
 To test an ingester you can run it from the command line. To do this you will need to create a config file, 
 a working directory, and then invoke it using the ``run_ingester`` script. A sample config is ::
@@ -104,25 +104,51 @@ Then, to run you could call: ``run_ingester pull.json /tmp`` then you should see
 
 
 
-===========
+================================
 Ingester Post Processing Scripts
-===========
+================================
 
 A post processing script is called with a workspace directory (cwd), and
 the data entry object that is being processed. The returned data entries
 are those which will be actully ingested into the dataset::
 
-  import os
-  import datetime
-  from dc24_ingester_platform.utils import *
+   from jcudc24ingesterapi.models.data_entry import DataEntry, FileObject
 
-  def process(cwd, data_entry):
-      data_entry = data_entry[0]
-      ret = [data_entry]
-      with open(os.path.join(cwd, data_entry["file1"].f_path)) as f:
-          for l in f.readlines():
-              l = l.strip().split(",")
-              if len(l) != 2: continue
-              ret.append( {"timestamp":format_timestamp(datetime.datetime.now()), "a":{"path":l[1].strip()}} )
-      return ret
+   def process(cwd, data_entry):
+       data_entry = data_entry[0]
+       ret = []
+       with open(os.path.join(cwd, data_entry["file1"].f_path)) as f:
+           for l in f.readlines():
+               l = l.strip().split(",")
+               if len(l) != 2: continue
+               new_data_entry = DataEntry(timestamp=datetime.datetime.now())
+               new_data_entry["a"] = FileObject(f_path=l[1].strip())
+               ret.append( new_data_entry )
+       return ret
 
+================
+Search Interface
+================
+
+A search will return a specific object type, based on a set of criteria that may reference other related objects. Complex searches could be constructed using using a search tree marshalled to a prefix notation, and then used to generate the search queries. Complex situations may arise when crossing between ingester and repository objects.
+
+======================
+Repository Integration
+======================
+
+The ingester platform requires a repository in which to store the data that it processes. The repository gets notified when any action occurs on project metdata with an opportunity to store references back in the ingester platform database. The repository is also exclusively used for the storage of data. It is expected to support at least data storage and retrieval methods.
+
+---------------
+DAM Integration
+---------------
+The DAM is the preferred repository for the ingester platform. May of the project metadata object map directly to the DAM metadata objects. If only value criteria are allowed, then this could be resolved by first querying one system then the other. Initially only a subset of the attributes will be searchable.
+
+================ ============
+Project Metadata DAM Metadata
+================ ============
+Region           -
+Location         Location
+Schema           Schema
+Dataset          Dataset
+DataEntry        Observation
+================ ============
