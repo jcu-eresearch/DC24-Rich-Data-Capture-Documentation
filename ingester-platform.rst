@@ -74,6 +74,37 @@ The periodic sampler fires at a predetermined rate, specified in seconds.
 Triggers whenever there is new data in another dataset. Passes the data entry ID and dataset as metadata to the data source. Only used with Dataset Data Source.
 
 ===========
+Ingesters
+===========
+
+An ingester is an object that is invoked by the ingester platform to assemble zero or more Data Entries. Each
+ingester will need a domain object in the ``jcudc24ingesterapi.models.data_sources`` module, and an implementation
+in the ``dc24_ingester_platform.ingester.data_sources`` module. The domain object will need to have each of the
+valid configuration parameters as Python properties, or our ``typed`` properties.
+
+^^^^^^^
+Testing
+^^^^^^^
+
+To test an ingester you can run it from the command line. To do this you will need to create a config file, 
+a working directory, and then invoke it using the ``run_ingester`` script. A sample config is ::
+
+   {
+      "class":"pull_data_source",
+       "state":{},
+       "parameters":{},
+       "config":{"url":"http://www.abc.net.au","field":"page"}
+   }
+
+Then, to run you could call: ``run_ingester pull.json /tmp`` then you should see an output such as ::
+
+   Time: 2013-02-05T16:15:06.786Z Dataset: None
+   	page = FileObject(f_path: outputfile, mime_type: )
+
+
+
+
+===========
 Ingester Post Processing Scripts
 ===========
 
