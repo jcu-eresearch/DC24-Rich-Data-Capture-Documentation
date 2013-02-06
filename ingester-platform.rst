@@ -87,7 +87,13 @@ Testing from the command line
 -----------------------------
 
 To test an ingester you can run it from the command line. To do this you will need to create a config file, 
-a working directory, and then invoke it using the ``run_ingester`` script. A sample config is ::
+a working directory, and then invoke it using the ``run_ingester <config> <cwd> [script]`` script. The script takes 2 manditory 
+arguments, and one optional argument. These are
+ * An ingester config file
+ * A working directory
+ * And optionally, a post processing script.
+
+A sample config is ::
 
    {
       "class":"pull_data_source",
