@@ -104,11 +104,25 @@ A sample config is ::
 
 Then, to run you could call: ``run_ingester pull.json /tmp`` then you should see an output such as ::
 
-   Time: 2013-02-05T16:15:06.786Z Dataset: None
-   	page = FileObject(f_path: outputfile, mime_type: )
+   Initial results
+   ---------------
+   Time: 2012-12-19T22:52:42.000Z Dataset: None
+   	file = FileObject(f_path: outputfile0, mime_type: )
+   
+   Time: 2012-12-19T22:56:32.000Z Dataset: None
+   	file = FileObject(f_path: outputfile1, mime_type: )
+   
+   
+   ...
+   Processed results
+   -----------------
+   Time: 2013-02-06T10:32:04.493Z Dataset: None
+   	temp = 29.9375
+   
+   Time: 2013-02-06T10:32:04.493Z Dataset: None
+   	temp = 29.75
 
-
-
+   ...
 
 ================================
 Ingester Post Processing Scripts
