@@ -11,7 +11,6 @@ Domain Objects
 
 The domain of the ingester platform is that of the projects, schemas, datasets, and ingester configurations that are to be collected.
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^
 Project Metadata: Region
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -72,6 +71,46 @@ The periodic sampler fires at a predetermined rate, specified in seconds.
 **New Data Sampler**
 
 Triggers whenever there is new data in another dataset. Passes the data entry ID and dataset as metadata to the data source. Only used with Dataset Data Source.
+
+---------------------------
+Ingester Service Components
+---------------------------
+
+The ingester platform is build using the http://twistedmatrix.com/ framework, which is a reactor framework. This means that requests and services started using periodic schedulers are serviced by a single thread. This has scaling implications as blocking processes such as ingesting large amounts of data will affect API clients. To overcome this the Ingester Platform has two services threads: the data source service; and the ingester service. Both are part of the IngesterEngine class.
+
+The data source service is fed through a queue by the processSampler method. The the running state of the data source is recorded to prevent multiple concurrent copies of a data source running. Once the data is collected and processed it is placed in an ingest queue.
+
+The ingester service thread is fed from the ingest queue.
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+processSamplers - Main thread
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This method is called periodicly from the Twisted callback. Its purpose is to datasets that are ready to ingest.
+#. Load active datasets
+#. For each sampler
+ #. Skip if there is no sampler or if the ingester is running
+ #. Load sampler state (processSampler)
+ #. Run sampler
+ #. Persist sampler state
+ #. Queue dataset if sampler returned True
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+processQueue - Data source thread
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This reads the dataset queue for new ingesters to run. It relies on the data source always returning or timing itself out.
+#. Load data source state
+#. Create temperary directories
+#. Run data source
+#. If there is a post processing script run it
+#. Queue output data for ingest
+#. Persist data source state
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+processIngestQueue - Ingest thread
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This thread ingests data into the repository. It relies on the repository access being thread safe.
+#. For each data entry
+ #. Ingest into repository
 
 ===========
 Ingesters
