@@ -56,7 +56,7 @@ This data source pulls a single resource from a specified URL (File, FTP, HTTP) 
 
 **Dataset Data Source**
 
-Gets data from another dataset in the repository. Will download the data from the observation. By default no data entry is produced.
+Gets data from another dataset in the repository. Will download the data from the data entry. By default no data entry is produced.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Ingester Metadata: Samplers
@@ -86,31 +86,31 @@ The ingester service thread is fed from the ingest queue.
 processSamplers - Main thread
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 This method is called periodicly from the Twisted callback. Its purpose is to datasets that are ready to ingest.
-#. Load active datasets
-#. For each sampler
- #. Skip if there is no sampler or if the ingester is running
- #. Load sampler state (processSampler)
- #. Run sampler
- #. Persist sampler state
- #. Queue dataset if sampler returned True
+ #. Load active datasets
+ #. For each sampler
+  #. Skip if there is no sampler or if the ingester is running
+  #. Load sampler state (processSampler)
+  #. Run sampler
+  #. Persist sampler state
+  #. Queue dataset if sampler returned True
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 processQueue - Data source thread
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 This reads the dataset queue for new ingesters to run. It relies on the data source always returning or timing itself out.
-#. Load data source state
-#. Create temperary directories
-#. Run data source
-#. If there is a post processing script run it
-#. Queue output data for ingest
-#. Persist data source state
+ #. Load data source state
+ #. Create temperary directories
+ #. Run data source
+ #. If there is a post processing script run it
+ #. Queue output data for ingest
+ #. Persist data source state
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 processIngestQueue - Ingest thread
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 This thread ingests data into the repository. It relies on the repository access being thread safe.
-#. For each data entry
- #. Ingest into repository
+ #. For each data entry
+  #. Ingest into repository
 
 ===========
 Ingesters
@@ -211,3 +211,55 @@ Schema           Schema
 Dataset          Dataset
 DataEntry        Observation
 ================ ============
+
+==============
+Management API
+==============
+
+The EMAS Ingester Platform has no specific user interface of its own, rather, all interactions occur using the web services API. The API provides methods for creating and managing all domain objects, and processes.
+
+-------------------
+Object Manipulation
+-------------------
+
+--------------------
+Management Processes
+--------------------
+
+The main purpose of the EMAS Ingester Platform is to manage data ingestion. The following methods enable this.
+
+^^^^^^^^^^^^^^^^
+Enable Ingestion
+^^^^^^^^^^^^^^^^
+
+::
+
+    enableDataset(dataset_id)
+
+^^^^^^^^^^^^^^^^^
+Disable Ingestion
+^^^^^^^^^^^^^^^^^
+
+::
+
+    disableDataset(dataset_id)
+
+^^^^^^^^^^^^^^^^^^^^^^
+Reprocess Derived Data
+^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    runIngester(dataset_id)
+
+It is possible to manually trigger an ingestion of *derived data* in the situation where there is a *raw data dataset*, containing data files, and a *derived dataset* that uses the *raw data dataset* as a dataset data source. This has the caviet that if there is already data in the *derived dataset* then invoking this process may create duplicate data entries.
+
+^^^^^^^^^^^^^^^^^^^^^
+Retrieve Ingester Log
+^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    getIngesterEvents(dataset_id)
+
+This method is used for retrieving all the available ingester logs. These can give insight into if any why an ingester process is failing.
