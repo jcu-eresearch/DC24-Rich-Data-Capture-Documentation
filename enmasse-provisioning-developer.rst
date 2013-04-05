@@ -2,4 +2,9 @@
 EnMaSSe Developer Documentation
 =================
 
-  ingester-platform
+Contents:
+
+.. toctree::
+   :maxdepth: 2
+
+   ingester-platform
