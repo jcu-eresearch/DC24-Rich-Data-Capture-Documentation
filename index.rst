@@ -13,9 +13,7 @@ Contents:
 
    enmasse-provisioning-user
    enmasse-provisioning-admin
-   enmasse-provisioning-developer   
-   ingester-platform
-
+   enmasse-provisioning-developer  
 
 
 Indices and tables
