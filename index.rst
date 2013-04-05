@@ -11,9 +11,9 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   enmasse-provisioning-user
-   enmasse-provisioning-admin
-   enmasse-provisioning-developer  
+   enmasse-user
+   enmasse-admin
+   enmasse-developer  
 
 
 Indices and tables

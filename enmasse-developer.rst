@@ -7,4 +7,5 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   ingester-platform
+   provisioning-developer   
+   ingester-developer

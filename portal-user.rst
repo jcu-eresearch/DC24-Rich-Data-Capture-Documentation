@@ -1,3 +1,3 @@
 =================
-EnMaSSe Administrator Documentation
+Using the EnMaSSe Data Portal
 =================
