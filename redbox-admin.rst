@@ -1,5 +1,5 @@
 =================
-Configuring ReDBox Integration with EnMaSSe
+Configuring ReDBox Integration
 =================
 
 

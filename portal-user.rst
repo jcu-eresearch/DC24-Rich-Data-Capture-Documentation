@@ -1,3 +1,3 @@
 =================
-Using the EnMaSSe Data Portal
+Using the Data Portal
 =================
