@@ -11,6 +11,9 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   enmasse-provisioning-user
+   enmasse-provisioning-admin
+   enmasse-provisioning-developer   
    ingester-platform
 
 
