@@ -216,7 +216,7 @@ DataEntry        Observation
 Management API
 ==============
 
-The EMAS Ingester Platform has no specific user interface of its own, rather, all interactions occur using the web services API. The API provides methods for creating and managing all domain objects, and processes.
+The EnMaSSe Ingester Platform has no specific user interface of its own, rather, all interactions occur using the web services API. The API provides methods for creating and managing all domain objects, and processes.
 
 -------------------
 Object Manipulation
@@ -226,7 +226,7 @@ Object Manipulation
 Management Processes
 --------------------
 
-The main purpose of the EMAS Ingester Platform is to manage data ingestion. The following methods enable this.
+The main purpose of the EnMaSSe Ingester Platform is to manage data ingestion. The following methods enable this.
 
 ^^^^^^^^^^^^^^^^
 Enable Ingestion
