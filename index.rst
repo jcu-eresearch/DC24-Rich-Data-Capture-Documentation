@@ -16,6 +16,20 @@ Contents:
    enmasse-developer  
 
 
+Nomanclature
+============
+
+Within this document the following definitions are assumed.
+
+===== ==========
+Term  Definition
+===== ==========
+user  An end user, such as a researcher or student
+admin A system administrator who will be responsible for installing, configuring, and administering the entire EnMaSSe platform
+developer Someone with technical skills and understanding who will modify the source code of the EnMaSSe system
+===== ==========
+
+
 Indices and tables
 ==================
 
