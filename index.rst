@@ -14,6 +14,7 @@ Contents:
    enmasse-user
    enmasse-admin
    enmasse-developer  
+   reusability
 
 
 Nomanclature
