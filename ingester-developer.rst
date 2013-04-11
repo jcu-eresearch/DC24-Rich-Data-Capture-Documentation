@@ -112,18 +112,18 @@ This thread ingests data into the repository. It relies on the repository access
  #. For each data entry
   #. Ingest into repository
 
-===========
+---------
 Ingesters
-===========
+---------
 
 An ingester is an object that is invoked by the ingester platform to assemble zero or more Data Entries. Each
 ingester will need a domain object in the ``jcudc24ingesterapi.models.data_sources`` module, and an implementation
 in the ``dc24_ingester_platform.ingester.data_sources`` module. The domain object will need to have each of the
 valid configuration parameters as Python properties, or our ``typed`` properties.
 
------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Testing from the command line
------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To test an ingester you can run it from the command line. To do this you will need to create a config file, 
 a working directory, and then invoke it using the ``run_ingester <config> <cwd> [script]`` script. The script takes 2 manditory 
@@ -163,9 +163,9 @@ Then, to run you could call: ``run_ingester pull.json /tmp`` then you should see
 
    ...
 
-================================
+--------------------------------
 Ingester Post Processing Scripts
-================================
+--------------------------------
 
 A post processing script is called with a workspace directory (cwd), and
 the data entry object that is being processed. The returned data entries
@@ -185,21 +185,21 @@ are those which will be actully ingested into the dataset::
                ret.append( new_data_entry )
        return ret
 
-================
+----------------
 Search Interface
-================
+----------------
 
 A search will return a specific object type, based on a set of criteria that may reference other related objects. Complex searches could be constructed using using a search tree marshalled to a prefix notation, and then used to generate the search queries. Complex situations may arise when crossing between ingester and repository objects.
 
-======================
+----------------------
 Repository Integration
-======================
+----------------------
 
 The ingester platform requires a repository in which to store the data that it processes. The repository gets notified when any action occurs on project metdata with an opportunity to store references back in the ingester platform database. The repository is also exclusively used for the storage of data. It is expected to support at least data storage and retrieval methods.
 
----------------
+^^^^^^^^^^^^^^^
 DAM Integration
----------------
+^^^^^^^^^^^^^^^
 The DAM is the preferred repository for the ingester platform. May of the project metadata object map directly to the DAM metadata objects. If only value criteria are allowed, then this could be resolved by first querying one system then the other. Initially only a subset of the attributes will be searchable.
 
 ================ ============
@@ -212,41 +212,39 @@ Dataset          Dataset
 DataEntry        Observation
 ================ ============
 
-==============
+--------------
 Management API
-==============
+--------------
 
-The EMAS Ingester Platform has no specific user interface of its own, rather, all interactions occur using the web services API. The API provides methods for creating and managing all domain objects, and processes.
+The EnMaSSe Ingester Platform has no specific user interface of its own, rather, all interactions occur using the web services API. The API provides methods for creating and managing all domain objects, and processes.
 
--------------------
+^^^^^^^^^^^^^^^^^^^
 Object Manipulation
--------------------
+^^^^^^^^^^^^^^^^^^^
 
---------------------
+^^^^^^^^^^^^^^^^^^^^
 Management Processes
---------------------
+^^^^^^^^^^^^^^^^^^^^
 
-The main purpose of the EMAS Ingester Platform is to manage data ingestion. The following methods enable this.
+The main purpose of the EnMaSSe Ingester Platform is to manage data ingestion. The following methods enable this.
 
-^^^^^^^^^^^^^^^^
+
 Enable Ingestion
-^^^^^^^^^^^^^^^^
+----------------
 
 ::
 
     enableDataset(dataset_id)
 
-^^^^^^^^^^^^^^^^^
 Disable Ingestion
-^^^^^^^^^^^^^^^^^
+-----------------
 
 ::
 
     disableDataset(dataset_id)
 
-^^^^^^^^^^^^^^^^^^^^^^
 Reprocess Derived Data
-^^^^^^^^^^^^^^^^^^^^^^
+----------------------
 
 ::
 
@@ -254,9 +252,8 @@ Reprocess Derived Data
 
 It is possible to manually trigger an ingestion of *derived data* in the situation where there is a *raw data dataset*, containing data files, and a *derived dataset* that uses the *raw data dataset* as a dataset data source. This has the caviet that if there is already data in the *derived dataset* then invoking this process may create duplicate data entries.
 
-^^^^^^^^^^^^^^^^^^^^^
 Retrieve Ingester Log
-^^^^^^^^^^^^^^^^^^^^^
+---------------------
 
 ::
 
