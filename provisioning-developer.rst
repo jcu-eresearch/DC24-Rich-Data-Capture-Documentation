@@ -59,11 +59,19 @@ server must be blocked to prevent fake HTTP headers being injected.
 
 It is assumed that Shibboleth is already setup on the front end web server.
 The proected end-point within the Provisioning Interface is 
-*/login/shibboleth*. This end point will require the following attributes:
+*/login/shibboleth*. This end point will require the following attributes be
+released by Shibboleth:
 
 # firstName
-# 
+# surname
+# commonName 
 # email
+# auEduPersonSharedToken 
+
+The final attribute, *auEduPersonSharedToken*, is a globally unique identifier
+for the use, and is what is used to link the Shibboleth account to the
+local account, as well as to accounts in other repositories.
+
 
 ...
 
