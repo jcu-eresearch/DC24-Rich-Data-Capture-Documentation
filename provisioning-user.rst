@@ -396,14 +396,22 @@ Project Date and Location
     
         Locations can be added, edited or deleted using the controls in the top right corner of the map: 
         
-        - .. image:: _static/map-navigate.png Navigate or drag the map to the desired location. 
-        - .. image:: _static/map-polygon.png Draw a polygon (shape with any number of sides) of any shape. 
-        - .. image:: _static/map-line.png Draw a line which may have multiple line segments. 
-        - .. image:: _static/map-rectangle.png Draw a rectangle (click and drag rather than clicking on each point). 
-        - .. image:: _static/map-point.png Draw a single point. 
-        - .. image:: _static/map-move.png Move points, this may be actual points or vertices of polygons and lines. 
-        - .. image:: _static/map-delete.png Delete a location, this has the same effect as pressing the X.
+        - |navigate| Navigate or drag the map to the desired location.
+        - |polygon| Draw a polygon (shape with any number of sides) of any shape. 
+        - |line| Draw a line which may have multiple line segments.
+        - |rectangle| Draw a rectangle (click and drag rather than clicking on each point). 
+        - |point| Draw a single point. 
+        - |move| Move points, this may be actual points or vertices of polygons and lines. 
+        - |delete| Delete a location, this has the same effect as pressing the X.
         
+        .. |navigate| image:: _static/map-navigate.png
+        .. |polygon| image:: _static/map-polygon.png
+        .. |line| image:: _static/map-line.png
+        .. |rectangle| image:: _static/map-rectangle.png
+        .. |point| image:: _static/map-point.png
+        .. |move| image:: _static/map-move.png
+        .. |delete| image:: _static/map-delete.png
+
         Name        
             The name of the entered location, most research projects will have a code or name for each location such as Australian Wet Tropics or CU42A.
         
@@ -611,8 +619,8 @@ Location
 
     Controls for adding points or navigating the map are located at the top right corner of the map: 
 
-    - .. image:: _static/map-navigate.png Navigate or drag the map to the desired location. 
-    - .. image:: _static/map-point.png Draw a single point.
+    - |navigate| Navigate or drag the map to the desired location. 
+    - |point| Draw a single point.
     
     Name    
         The name of the entered location, most research projects will have a code or name for each location such as Australian Wet Tropics or CU42A.
@@ -699,6 +707,8 @@ Project Lifecycle
 -----------------
 
 .. image:: _static/project-lifecycle.png
+   :align: right
+
 *Figure 8:  Project life cycle*
 
 Projects in the EnMaSSe system follow the life cycle illustrated in figure X above, generally you will only need to submit the project for administrator approval, but the whole process has been illustrated here for completeness.
