@@ -18,7 +18,7 @@ Overview
 
 Researchers face many challenges once they decide to share data as there is a large amount of information that must always be attributed to this data in all circumstances of use.  The most obvious of these is data collection methods, but there are other pieces of information that NEED to be passed on with this data, such as all parties involved in data collection (persons and organisations); who owns the data; who manages the data; version of the data; funding sources; licences; whether the data is derived; etc.  EnMaSSe helps researchers to easily attribute this data about data (metadata) to whole projects, whole research methods, and all datasets associated with each project and method (Figure 1).
 
-
+.. image:: _static/enmasse-overview.png
 *Figure 1:  EnMaSSe Overview*
 
 The important outcomes of the EnMaSSE system are both:
@@ -35,6 +35,7 @@ ReDBox-Mint is 3rd party metadata repository (ReDBox) and name authority (Mint) 
 
 CoastalCOMS Digital Asset Manager CC-DAM is the persistent data storage system used, to put it simply it is a database indexed file storage system which makes it highly scalable (for example our first import contained over 8 million files!).  
 
+.. image:: _static/enmasse-workflows.png
 *Figure 2: EnMaSSe workflows & components*
 
 Sensor data presents the most obvious example of data that is challenging for researchers to share: many datasets are collected at many locations sometimes with multiple sensor types often across multiple projects.  Yet almost all metadata for a single sensor for a single project will be the same, and often the metadata between projects will be similar.  EnMaSSe recognises this and is structured such that a single unique piece of information should rarely need to be typed more than once (Figure 2).
@@ -178,7 +179,8 @@ The first step is to create a new project (click the New Project item in the mai
 
 Project templates allow for pre-filling of any/all fields, and provides the maximum time-savings when there are projects that are similar - equivalent functionality can be achieved using duplicate project in the sidebar.
 
-*Figure X:  New Project page (Templates are hidden by default)*
+.. image:: _static/new-project.png
+*Figure 3:  New Project page (Templates are hidden by default)*
 
 Description of Fields
 =====================
@@ -235,7 +237,8 @@ If a research grant was provided in the project creation step:
 - Project title is pre-filled with the grant title as a starting point
 - Any additional people associated with the research grant are added to the people section.
 
-*Figure X:  General details page*
+.. image:: _static/general-details.png
+*Figure 4:  General details page*
 
 Description of Fields
 =====================
@@ -285,7 +288,8 @@ The descriptions page provides plenty of space to enter the brief and full descr
 
 Detailed methods used within the project should not be entered in this section.
 
-*Figure X:  Descriptions page*
+.. image:: _static/descriptions.png
+*Figure 5:  Descriptions page*
 
 Description of Fields
 =====================
@@ -317,6 +321,9 @@ Note(s)
 Collects the bulk of metadata (information about the collected research data) for the ReDBox record such as keywords, research codes, dates, location and other related information.
 
 If a research grant was selected the date from and date to fields will be prefilled (when available).
+
+.. image:: _static/information.png
+*Figure:  Information page*
 
 Description of Fields
 =====================
@@ -389,13 +396,13 @@ Project Date and Location
     
         Locations can be added, edited or deleted using the controls in the top right corner of the map: 
         
-        - Navigate or drag the map to the desired location. 
-        - Draw a polygon (shape with any number of sides) of any shape. 
-        - Draw a line which may have multiple line segments. 
-        - Draw a rectangle (click and drag rather than clicking on each point). 
-        - Draw a single point. 
-        - Move points, this may be actual points or vertices of polygons and lines. 
-        - Delete a location, this has the same effect as pressing the X.
+        - .. image:: _static/map-navigate.png Navigate or drag the map to the desired location. 
+        - .. image:: _static/map-polygon.png Draw a polygon (shape with any number of sides) of any shape. 
+        - .. image:: _static/map-line.png Draw a line which may have multiple line segments. 
+        - .. image:: _static/map-rectangle.png Draw a rectangle (click and drag rather than clicking on each point). 
+        - .. image:: _static/map-point.png Draw a single point. 
+        - .. image:: _static/map-move.png Move points, this may be actual points or vertices of polygons and lines. 
+        - .. image:: _static/map-delete.png Delete a location, this has the same effect as pressing the X.
         
         Name        
             The name of the entered location, most research projects will have a code or name for each location such as Australian Wet Tropics or CU42A.
@@ -452,7 +459,8 @@ The type of data being collected allows configuration of what data is collected 
 
 Selection of the data source specifies how data will be ingested but configuration of the data source is done in the datasets step.
 
-*Figure X:  Methods page*
+.. image:: _static/method.png
+*Figure 6:  Methods page*
 
 Description of Fields
 =====================
@@ -576,6 +584,7 @@ The dataset page collects the following data:
 
 Each data source is configured differently but will usually require the data location, when to sample and how to process the found data.
 
+.. image:: _static/datasets.png
 *Figure X:  Datasets page.*
 
 Description of Fields
@@ -602,8 +611,8 @@ Location
 
     Controls for adding points or navigating the map are located at the top right corner of the map: 
 
-    - Navigate or drag the map to the desired location. 
-    - Draw a single point.
+    - .. image:: _static/map-navigate.png Navigate or drag the map to the desired location. 
+    - .. image:: _static/map-point.png Draw a single point.
     
     Name    
         The name of the entered location, most research projects will have a code or name for each location such as Australian Wet Tropics or CU42A.
@@ -652,6 +661,9 @@ Submit provides full project validation and an overview of the generated records
 
 The generated record for each dataset can be viewed, edited or reset. Viewing a dataset record is exactly the same as general details, descriptions and information all on a single form.
 
+.. image:: _static/submit.png
+*Figure 7:  Submit page.*
+
 Description of Fields
 =====================
 
@@ -686,7 +698,8 @@ There will be the following pages/functionality:
 Project Lifecycle
 -----------------
 
-*Figure X:  Project life cycle*
+.. image:: _static/project-lifecycle.png
+*Figure 8:  Project life cycle*
 
 Projects in the EnMaSSe system follow the life cycle illustrated in figure X above, generally you will only need to submit the project for administrator approval, but the whole process has been illustrated here for completeness.
 
