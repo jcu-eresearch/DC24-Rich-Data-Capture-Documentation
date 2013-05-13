@@ -59,256 +59,193 @@ Configuration of the provisioning interface is provided through the production.i
 
 Application specific configuration values (**Compulsory items are bold**):
 
-+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| sqlalchemy.url            |  MySQL username, password, address and database. |                                                                                                                        |
-+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ingesterapi.url           | Address of the ingester platform, in most situations this shouldn’t change unless you require custom ingester platform configuration.                                     |
-+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ingesterapi.username      | Ingester platform username as configured.                                                                                                                                 |
-+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ingesterapi.password      | Ingester platform password as configured.                                                                                                                                 |
-+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| mint.location             | Location of the Mint name authority for looking up users.                                                                                                                 |
-+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| redbox.url                | Location of the ReDBox installation.                                                                                                                                      |
-+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| redbox.search_url         | Location of ReDBox search url (prepended to redbox.url)                                                                                                                   |
-+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| redbox.alert_url          | Location of the ReDBox alert url (prepended to redbox.url).  ReDBox will read and ingest records when this url is hit.                                                    |
-+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| redbox.ssh_host           | SSH Address for the ReDBox server.                                                                                                                                        |
-+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| redbox.ssh_port           | SSH port to use for connecting to the ReDBox server.                                                                                                                      |
-+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| redbox.rsa_private_key    | Location of the SSH Private key for the ReDBox server.                                                                                                                    |
-+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| redbox.ssh_username       | SSH username to use for connecting to the ReDBox server.                                                                                                                  |
-+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| redbox.ssh_password       | Either the SSH password or the private key password (may be blank if using an SSH key that isn’t password protected).                                                     |
-+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| redbox.ssh_harvest_dir    | Location to upload generated record XML files to.                                                                                                                         |
-+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| redbox.local_config_file  | Where the ReDBox field mappings file will be saved to. The mapping file is generated when the provisioning interface is started.                                          |
-+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| redbox.identifier_pattern | Prefix for all generated ReDBox identifiers.                                                                                                                              |
-+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| provisioning.for_codes    | CSV File that contains FOR codes.                                                                                                                                         |
-+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| provisioning.seo_codes    | CSV File that contains SEO codes.                                                                                                                                         |
-+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| workflows.files           | Location that file uploads are saved to, this isn’t contained in temp as some file uploads need to be persistent (such as files attached to project or method templates). |
-+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| tmpdir                    | Temporary directory                                                                                                                                                       |
-+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| pyramid_deform.tempdir    | Temporary directory for pyramid/application specific files.                                                                                                               |
-+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| mint.tmpdir               | Temporary directory for mint specific files.                                                                                                                              |
-+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| redbox.tmpdir             | Temporary directory for ReDBox specific files.  This is used to write record XML to be transferred to ReDBox using SFTP.                                                  |
-+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| session.secret            | Secret/password that your session uses (random generated number).                                                                                                         |
-+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| host                      | (non-UWSGI server) IP Addresses that your server will accept.                                                                                                             |
-+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| port                      | (non-UWSGI server) Port that the provisioning interface can be accessed on.                                                                                               |
-+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| base_dir                  | base installation directory of the provisioning interface                                                                                                                 |
-+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| socket                    | (UWSGI server) IP addresses to accept and the port that the UWSGI container will be accessible on.                                                                        |
-+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **sqlalchemy.url**            |  MySQL username, password, address and database.                                                                                                                          |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ingesterapi.url               | Address of the ingester platform, in most situations this shouldn’t change unless you require custom ingester platform configuration.                                     |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **ingesterapi.username**      | Ingester platform username as configured.                                                                                                                                 |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **ingesterapi.password**      | Ingester platform password as configured.                                                                                                                                 |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **mint.location**             | Location of the Mint name authority for looking up users.                                                                                                                 |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **redbox.url**                | Location of the ReDBox installation.                                                                                                                                      |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| redbox.search_url             | Location of ReDBox search url (prepended to redbox.url)                                                                                                                   |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| redbox.alert_url              | Location of the ReDBox alert url (prepended to redbox.url).  ReDBox will read and ingest records when this url is hit.                                                    |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **redbox.ssh_host**           | SSH Address for the ReDBox server.                                                                                                                                        |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **redbox.ssh_port**           | SSH port to use for connecting to the ReDBox server.                                                                                                                      |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **redbox.rsa_private_key**    | Location of the SSH Private key for the ReDBox server.                                                                                                                    |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **redbox.ssh_username**       | SSH username to use for connecting to the ReDBox server.                                                                                                                  |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **redbox.ssh_password**       | Either the SSH password or the private key password (may be blank if using an SSH key that isn’t password protected).                                                     |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **redbox.ssh_harvest_dir**    | Location to upload generated record XML files to.                                                                                                                         |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| redbox.local_config_file      | Where the ReDBox field mappings file will be saved to. The mapping file is generated when the provisioning interface is started.                                          |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **redbox.identifier_pattern** | Prefix for all generated ReDBox identifiers.                                                                                                                              |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| provisioning.for_codes        | CSV File that contains FOR codes.                                                                                                                                         |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| provisioning.seo_codes        | CSV File that contains SEO codes.                                                                                                                                         |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| workflows.files               | Location that file uploads are saved to, this isn’t contained in temp as some file uploads need to be persistent (such as files attached to project or method templates). |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| tmpdir                        | Temporary directory                                                                                                                                                       |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| pyramid_deform.tempdir        | Temporary directory for pyramid/application specific files.                                                                                                               |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| mint.tmpdir                   | Temporary directory for mint specific files.                                                                                                                              |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| redbox.tmpdir                 | Temporary directory for ReDBox specific files.  This is used to write record XML to be transferred to ReDBox using SFTP.                                                  |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **session.secret**            | Secret/password that your session uses (random generated number).                                                                                                         |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **host**                      | (non-UWSGI server) IP Addresses that your server will accept.                                                                                                             |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **port**                      | (non-UWSGI server) Port that the provisioning interface can be accessed on.                                                                                               |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **base_dir**                  | base installation directory of the provisioning interface                                                                                                                 |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **socket**                    | (UWSGI server) IP addresses to accept and the port that the UWSGI container will be accessible on.                                                                        |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Other settings can be changed as per their documentation:
 
-    General pyramid (the framework) configurations: http://docs.pylonsproject.org/projects/pyramid/en/latest/narr/project.html#myproject-ini
-
-    SQLAlchemy (database): http://docs.sqlalchemy.org/en/rel_0_8/core/engines.html
-
-    pyramid_beaker add-on settings: http://docs.pylonsproject.org/projects/pyramid_beaker/en/latest/
-
-    Logging configuration: http://docs.pylonsproject.org/projects/pyramid/en/latest/narr/logging.html
-
+- General pyramid (the framework) configurations: http://docs.pylonsproject.org/projects/pyramid/en/latest/narr/project.html#myproject-ini
+- SQLAlchemy (database): http://docs.sqlalchemy.org/en/rel_0_8/core/engines.html
+- pyramid_beaker add-on settings: http://docs.pylonsproject.org/projects/pyramid_beaker/en/latest/
+- Logging configuration: http://docs.pylonsproject.org/projects/pyramid/en/latest/narr/logging.html
 
 Web Server & Shibboleth
++++++++++++++++++++++++
 
-Shibboleth is a federated authentication service that sits in front of the application and injects user authentication headers.  
+.. _Shibboleth: http://shibboleth.net/
+.. _NGINX : http://wiki.nginx.org/Main
+.. _`Fast CGI`: http://www.fastcgi.com/drupal/
+.. _Pyramid: http://www.pylonsproject.org/
+.. _UWSGi : http://uwsgi-docs.readthedocs.org/en/latest/
+.. _`JCU eResearch`: http://eresearch.jcu.edu.au/
+.. _ReDBox: http://www.redboxresearchdata.com.au/
+.. _Mint: http://www.redboxresearchdata.com.au/
+.. _RDA: http://researchdata.ands.org.au/
 
-Shibboleth requires a web server that supports CGI, JCU eResearch has chosen the nginx webserver using Fast CGI to support Shibboleth.
+Shibboleth_ is a federated authentication service that sits in front of the application and injects user authentication headers.  
+
+Shibboleth_ requires a web server that supports CGI, `JCU eResearch`_ has chosen the NGINX_ webserver using `Fast CGI`_ to support Shibboleth_.
 
 The application login address is located at /login/shibboleth, shibboleth should be configured to handle authentication at this address and redirect back to the application when complete.
 
-The EnMaSSe provisioning interface is based on Pyramid using a UWSGI container for production deployment.
+The EnMaSSe provisioning interface is based on Pyramid_ using a UWSGi_ container for production deployment.
 
 ReDBox Integration
+------------------
 
-ReDBox is a research metadata repository that among other things, publishes research data nationally to ANDS.
+ReDBox_ is a research metadata repository that among other things, publishes research data nationally to Research Data Australia (RDA_).
 
-EnMaSSe integrates with ReDBox by exporting project metadata and per dataset metadata when a project is submitted and approved.  The export occurs by:
+EnMaSSe integrates with ReDBox_ by exporting project metadata and per dataset metadata when a project is submitted and approved.  The export occurs by:
 
-    Converting the provisioning interfaces metadata tables into XML files.
+#. Converting the provisioning interfaces metadata tables into XML files.
+#. Uploading the files to the ReDBox server over SFTP (File transfer over SSH).
+#. Polling the ReDBox alert URL to start the ReDBox harvest.
 
-    Uploading the files to the ReDBox server over SFTP (File transfer over SSH).
-
-    Polling the ReDBox alert URL to start the ReDBox harvest.
-
-
-Before EnMaSSe can integrate with ReDBox it requires a new alerts harvest configuration to be added within ReDBox and the SSH permissions and configurations to be set-up.
+Before EnMaSSe can integrate with ReDBox_ it requires a new alerts harvest configuration to be added within ReDBox_ and the SSH permissions and configurations to be set-up.
 
 SSH Access
+++++++++++
 
-A new user should be created on the ReDBox server with a public key and write access to the enmasse-alerts folder (see alerts configuration).  The actual steps to do this are operating system dependent but for a linux machine it would be something like:
+A new user should be created on the ReDBox_ server with a public key and write access to the enmasse-alerts folder (see alerts configuration).  The actual steps to do this are operating system dependent but for a linux machine it would be something like:
 
-    useradd <username>
-
-    passwd <username>
-
-    Copy/paste your public key into ~/.ssh/authorized_keys
-
-    cd <enmasse-alerts location>
-
-    sudo chown <username>:<username> ./
-
+#. useradd <username>
+#. passwd <username>
+#. Copy/paste your public key into ~/.ssh/authorized_keys
+#. cd <enmasse-alerts location>
+#. sudo chown <username>:<username> ./
 
 Once the new user has been created and has write permission the provisioning interface configuration file needs to be updated with the connection details:
 
-    Open <install location>/src/jcu.dc24.provisioning/production.ini.
-
-    Edit redbox.ssh_host to the server IP address or domain name (eg. example.com.au).
-
-    Set redbox.ssh_port as configured on the server (default is 22).
-
-    Set redbox.rsa_private_key to the fully qualified location of the private key that corresponds to the public key added above.
-
-    Set redbox.ssh_username as the user created above.
-
-    Set redbox.ssh_password as the SSH private key password (or leave blank).
-
-    Set redbox.ssh_harvest_dir to the location of the enmasse-alerts folder (eg. /opt/deployment/redbox/home/harvest/enmasse-alerts)
-
-    Update redbox.identifier_pattern to an appropriate identifier prefix for your organisation (eg. JCU uses jcu.edu.au/collection/enmasse)
-
+#. Open <install location>/src/jcu.dc24.provisioning/production.ini.
+#. Edit redbox.ssh_host to the server IP address or domain name (eg. example.com.au).
+#. Set redbox.ssh_port as configured on the server (default is 22).
+#. Set redbox.rsa_private_key to the fully qualified location of the private key that corresponds to the public key added above.
+#. Set redbox.ssh_username as the user created above.
+#. Set redbox.ssh_password as the SSH private key password (or leave blank).
+#. Set redbox.ssh_harvest_dir to the location of the enmasse-alerts folder (eg. /opt/deployment/redbox/home/harvest/enmasse-alerts)
+#. Update redbox.identifier_pattern to an appropriate identifier prefix for your organisation (eg. JCU uses jcu.edu.au/collection/enmasse)
 
 Alerts Configuration
+++++++++++++++++++++
 
 There are 2 steps to configuring the EnMaSSe alerts harvester:
 
-    Copy the enmasse-alerts folder from the root folder of the github repository and add it to <redbox installation dir>/home/harvest/
-
-    Update the <redbox installation dir>/home/system-config.json file as illustrated below:
-
-
-{
-
-    ...
-
-       "houseKeeping": {
-
-           "config": {
-
-               "quartzConfig": "${fascinator.home}/quartz.properties",
-
-               "desktop": true,
-
-               "frequency": "3600",
-
-               "jobs": [
-
-                   ...
-
-            {
-
-                   "name": "newalerts-enmasse",
-
-                   "type": "external",
-
-         "url": "http://localhost:${jetty.port}/redbox/default/hkjobs/newalerts.script",        
-
-"timing": "0 0 1 * * ?"
-
-           }
-
-               ]
-
-           }
-
-       ...
-
-    "new-alerts": {
-
-       "alertSet": [
-
-           {
-
-               "name": "EnMaSSe Provisioning",
-
-               "path": "${fascinator.home}/harvest/enmasse-alerts",
-
-               "harvestConfig": "${fascinator.home}/harvest/enmasse-alerts/config/enmasse-dataset.json",
-
-               "handlers": {"xml": "XMLAlertHandler"},
-
-               "baseline": {
-
-                   "workflow_source": "EMAS Alert"
-
-                   "viewId": "default",
-
-                   "packageType": "dataset",
-
-                   "redbox:formVersion": "1.5.2",
-
-                   "redbox:newForm": "true",
-
-                     "redbox:submissionProcess.redbox:submitted": "true",
-
-                   "xmlns:dc": "http://dublincore.org/documents/2008/01/14/dcmi-terms/",
-
-                   "xmlns:foaf": "http://xmlns.com/foaf/spec/",
-
-                   "xmlns:anzsrc": "http://purl.org/anzsrc/",
-
-                   "dc:type.rdf:PlainLiteral": "dataset",
-
-                   "dc:type.skos:prefLabel": "Dataset",
-
-                   "dc:language.dc:identifier": "http://id.loc.gov/vocabulary/iso639-2/eng",
-
-                   "dc:language.skos:prefLabel": "English"
-
-               },
-
-               "timestampFields": ["redbox:submissionProcess.dc:date"],              
-
-               "XMLAlertHandlerParams": {
-
-                   "configMap": {
-
-                       "xml": {"xmlMap": "${fascinator.home}/harvest/enmasse-alerts/config/enmasseXmlMap.json"}        
-
-                   }
-
-               }
-
-           }
-
-       ],
-
-       "baseline": {
-
-           "viewId": "default",
-
-           "packageType": "dataset",
-
-           "redbox:formVersion": "1.5.2",
-
-           "redbox:newForm": "true",
-
-           "redbox:submissionProcess.redbox:submitted": "true"
-
-       }
-
-    ...
-
-}
+#. Copy the enmasse-alerts folder from the root folder of the github repository and add it to <redbox installation dir>/home/harvest/
+#. Update the <redbox installation dir>/home/system-config.json file as illustrated below:
+	
+	..
+		{	
+		    ...	
+		       "houseKeeping": {	
+		           "config": {	
+		               "quartzConfig": "${fascinator.home}/quartz.properties",	
+		               "desktop": true,	
+		               "frequency": "3600",	
+		               "jobs": [	
+		                   ...	
+		            {	
+		                   "name": "newalerts-enmasse",	
+		                   "type": "external",	
+		         "url": "http://localhost:${jetty.port}/redbox/default/hkjobs/newalerts.script",        	
+		"timing": "0 0 1 * * ?"	
+		           }	
+		               ]	
+		           }	
+		       ...	
+		    "new-alerts": {	
+		       "alertSet": [	
+		           {	
+		               "name": "EnMaSSe Provisioning",	
+		               "path": "${fascinator.home}/harvest/enmasse-alerts",	
+		               "harvestConfig": "${fascinator.home}/harvest/enmasse-alerts/config/enmasse-dataset.json",	
+		               "handlers": {"xml": "XMLAlertHandler"},	
+		               "baseline": {	
+		                   "workflow_source": "EMAS Alert"	
+		                   "viewId": "default",	
+		                   "packageType": "dataset",	
+		                   "redbox:formVersion": "1.5.2",	
+		                   "redbox:newForm": "true",	
+		                     "redbox:submissionProcess.redbox:submitted": "true",	
+		                   "xmlns:dc": "http://dublincore.org/documents/2008/01/14/dcmi-terms/",	
+		                   "xmlns:foaf": "http://xmlns.com/foaf/spec/",	
+		                   "xmlns:anzsrc": "http://purl.org/anzsrc/",	
+		                   "dc:type.rdf:PlainLiteral": "dataset",	
+		                   "dc:type.skos:prefLabel": "Dataset",	
+		                   "dc:language.dc:identifier": "http://id.loc.gov/vocabulary/iso639-2/eng",	
+		                   "dc:language.skos:prefLabel": "English"	
+		               },	
+		               "timestampFields": ["redbox:submissionProcess.dc:date"],              	
+		               "XMLAlertHandlerParams": {	
+		                   "configMap": {	
+		                       "xml": {"xmlMap": "${fascinator.home}/harvest/enmasse-alerts/config/enmasseXmlMap.json"}        	
+		                   }	
+		               }
+		           }	
+		       ],	
+		       "baseline": {	
+		           "viewId": "default",	
+		           "packageType": "dataset",	
+		           "redbox:formVersion": "1.5.2",	
+		           "redbox:newForm": "true",	
+		           "redbox:submissionProcess.redbox:submitted": "true"	
+		       }	
+		    ...	
+		}
 
 Project Management
 
