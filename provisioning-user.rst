@@ -162,12 +162,9 @@ Limitations
 
 There are some limitations with the current EnMaSSe implementation:
 
-    Data is stored as flat files, so indexing (data configuration) needs to be done right from the start - it is possible to reprocess and re-index data, but this shouldn’t be the norm.
-
-    It is likely that users will require new standardised fields and template which requires constant administrator support.
-
-    Standardised fields can only be added once, so if the user has two of the same type of data they will need to add the second as a custom field.  We have since rethought this and it would make more sense for standard measurements such as temperature to be added as custom field types and standardised fields be used as a template like system for data configurations.
-
+- Data is stored as flat files, so indexing (data configuration) needs to be done right from the start - it is possible to reprocess and re-index data, but this shouldn’t be the norm.
+- It is likely that users will require new standardised fields and template which requires constant administrator support.
+- Standardised fields can only be added once, so if the user has two of the same type of data they will need to add the second as a custom field.  We have since rethought this and it would make more sense for standard measurements such as temperature to be added as custom field types and standardised fields be used as a template like system for data configurations.
 
 Project Creation & Configuration
 --------------------------------
@@ -184,322 +181,255 @@ Project templates allow for pre-filling of any/all fields, and provides the maxi
 *Figure X:  New Project page (Templates are hidden by default)*
 
 Description of Fields
-+++++++++++++++++++++
+=====================
 
-:underline:'Use a project template (only select if your project is similar to a previous one)'
+Use a project template (only select if your project is similar to a previous one)
+    Select this checkbox if you would like to use a project template.
 
-
-Select this checkbox if you would like to use a project template.
-
-Note:
-
-    Project templates are most useful when set up specifically for your department or research group, you can request the administrators to add new project templates.
-
-    In most cases your supervisor or department will let you know in advance if there is an appropriate template for you to use.
+    Note:    
+        - Project templates are most useful when set up specifically for your department or research group, you can request the administrators to add new project templates.
+        - In most cases your supervisor or department will let you know in advance if there is an appropriate template for you to use.
 
 
 Select a Project Template
+    Categories are displayed on the left and templates are on the right.
 
-Categories are displayed on the left and templates are on the right.
+    First select your category/research group/department on the left side, then select the most appropriate template on the right.
 
-First select your category/research group/department on the left side, then select the most appropriate template on the right.
-
-Note:
-
-    A template has been selected when it is outlined.
+    Note:
+        - A template has been selected when it is outlined.
 
 
-There is an associated research grant*
-
-Un-select this checkbox if your project doesn’t have a research grant.
+There is an associated research grant
+    Un-select this checkbox if your project doesn’t have a research grant.
 
 Research Grant     
+    Start typing the title of your research grant, there is a short delay when you stop typing before the list of available grants is shown.
 
-Start typing the title of your research grant, there is a short delay when you stop typing before the list of available grants is shown.
-
-Note:
-
-    If your grant isn’t displayed in the list then please contact the administrators about getting it added to ReDBox-Mint.
-
-    You must select an item from the autocomplete list, directly entered text will not work.
+    Note:    
+        - If your grant isn’t displayed in the list then please contact the administrators about getting it added to ReDBox-Mint.
+        - You must select an item from the autocomplete list, directly entered text will not work.
 
 
 Data Manager (Primary contact)*
-Start typing the name of the projects data manager, there is a short delay when you stop typing before the list of available people are shown.
-
-Note:
-
-    If your primary contact isn’t displayed in the list then please ask them to login to the EnMaSSe system.
-
-    You must select an item from the autocomplete list, directly entered text will not work.
-
+    Start typing the name of the projects data manager, there is a short delay when you stop typing before the list of available people are shown.
+    
+    Note:    
+        - If your primary contact isn’t displayed in the list then please ask them to login to the EnMaSSe system.
+        - You must select an item from the autocomplete list, directly entered text will not work.
 
 Project Lead (Supervisor)*
-Start typing the name of the project lead, there is a short delay when you stop typing before the list of available people are shown.
+    Start typing the name of the project lead, there is a short delay when you stop typing before the list of available people are shown.
 
-Note:
-
-    If your project lead isn’t displayed in the list then please ask them to login to the EnMaSSe system.
-
-    You must select an item from the autocomplete list, directly entered text will not work.
+    Note:    
+        - If your project lead isn’t displayed in the list then please ask them to login to the EnMaSSe system.
+        - You must select an item from the autocomplete list, directly entered text will not work.
 
 2. General Details
+++++++++++++++++++
 
 After project creation the general details page is displayed and collects metadata including the title, associated grant and information about all associated people, groups and organisations.
 
 If a research grant was provided in the project creation step:
 
-    Project title is pre-filled with the grant title as a starting point
+- Project title is pre-filled with the grant title as a starting point
+- Any additional people associated with the research grant are added to the people section.
 
-    Any additional people associated with the research grant are added to the people section.
-
-
-Figure X:  General details page
+*Figure X:  General details page*
 
 Description of Fields
+=====================
+
 Project Title*
+    Enter a descriptive name for this project, someone that sees the project title should get a general understanding of what the project is about.
 
-Enter a descriptive name for this project, someone that sees the project title should get a general understanding of what the project is about.
-
-Note:
-
-    Metadata records generated for datasets will use the project title in the following pattern:
-    <project title> at <location name> (<lat>, <long>, <elevation>m above MSL) collected by <method name>
-
-    The project title may be pre-filled with the title of the research grant chosen on the project creation page.
+    Note:    
+        - Metadata records generated for datasets will use the project title in the following pattern:
+          <project title> at <location name> (<lat>, <long>, <elevation>m above MSL) collected by <method name>
+        - The project title may be pre-filled with the title of the research grant chosen on the project creation page.
 
 
 Research Grant    
+    Start typing the title of your research grant, there is a short delay when you stop typing before the list of available grants is shown.
+    
+    Note:    
+        - If your grant isn’t displayed in the list then please contact the administrators about getting it added to ReDBox-Mint.    
+        - You must select an item from the autocomplete list, directly entered text will not work.    
+        - This will be pre-filled if a research grant was provided on the project creation page.
 
-Start typing the title of your research grant, there is a short delay when you stop typing before the list of available grants is shown.
-
-Note:
-
-    If your grant isn’t displayed in the list then please contact the administrators about getting it added to ReDBox-Mint.
-
-    You must select an item from the autocomplete list, directly entered text will not work.
-
-    This will be pre-filled if a research grant was provided on the project creation page.
-
-People    
-
-Add all people associated with this project.
-
-Note:
-
-    This will be pre-filled with the data manager and project lead.
-
-    Due to internal restrictions the project lead is shown as aggregated by.
-
-    If a research grant is selected all associated people will be pre-filled in this section.
+People   
+    Add all people associated with this project.
+    
+    Note:    
+        - This will be pre-filled with the data manager and project lead.    
+        - Due to internal restrictions the project lead is shown as aggregated by.    
+        - If a research grant is selected all associated people will be pre-filled in this section.
 
 This project is
-
-The relationship that this person has with the project, select the most relevant
-relationship.
+    The relationship that this person has with the project, select the most relevant relationship.
+    
 Person*
-Start typing the name of the person, there is a short delay when you stop typing before the list of available people are shown.
-
-Note:
-
-    If your person isn’t displayed in the list then please ask them to login to the EnMaSSe system.
-
-    You must select an item from the autocomplete list, directly entered text will not work.
-
-
-Collaborators (Organisations, groups or external people)     
-
-Add any additional collaborators that cannot be added in the people section such as people, groups or organisations.
+    Start typing the name of the person, there is a short delay when you stop typing before the list of available people are shown.
+    
+    Note:    
+        - If your person isn’t displayed in the list then please ask them to login to the EnMaSSe system.
+        - You must select an item from the autocomplete list, directly entered text will not work.
+    
+Collaborators (Organisations, groups or external people)    
+    Add any additional collaborators that cannot be added in the people section such as people, groups or organisations.
 
 3. Descriptions
++++++++++++++++
 
 The descriptions page provides plenty of space to enter the brief and full descriptions of the project as well as optional notes.
 
 Detailed methods used within the project should not be entered in this section.
 
-Figure X:  Descriptions page
+*Figure X:  Descriptions page*
 
 Description of Fields
+=====================
+
 Brief Description
+    Provide a short description of the research done, why the research was done and the collection and research methods used.
 
-Provide a short description of the research done, why the research was done and the collection and research methods used.
+    This description should be written in layman's terms and focus on giving an overview of the whole project without going too far into detail about specific methods or datasets.
 
-This description should be written in layman's terms and focus on giving an overview of the whole project without going too far into detail about specific methods or datasets.
-
-Note:
-
-    The brief description may be pre-filled with the research grant description, this will need updating.
-
-    The entered brief description will be used for all generate records, so make sure it makes sense for all methods and datasets that your project will use.
+    Note:    
+        - The brief description may be pre-filled with the research grant description, this will need updating.
+        - The entered brief description will be used for all generate records, so make sure it makes sense for all methods and datasets that your project will use.
 
 Full Description
+    Provide a full description of the project targeted at researchers and scientists (technical details allowed!).
 
-Provide a full description of the project targeted at researchers and scientists (technical details allowed!).
+    Note:    
+        - The entered full description will be used for all generate records, so make sure it makes sense for all methods and datasets that your project will use.
 
-Note:
-
-    The entered full description will be used for all generate records, so make sure it makes sense for all methods and datasets that your project will use.
-
-Note(s)     
-
-Optionally enter additional notes about the project, this may include things like additional information on funding bodies, high level overview of the project location or any information you want to add to the generated metadata records that doesn’t really fit elsewhere.
-
-Note:
-
-    Notes will be used for all generate records, so make sure it makes sense for all methods and datasets that your project will use.
+Note(s)   
+    Optionally enter additional notes about the project, this may include things like additional information on funding bodies, high level overview of the project location or any information you want to add to the generated metadata records that doesn’t really fit elsewhere.
+    
+    Note:    
+        - Notes will be used for all generate records, so make sure it makes sense for all methods and datasets that your project will use.
 
 4. Information
+++++++++++++++
 
 Collects the bulk of metadata (information about the collected research data) for the ReDBox record such as keywords, research codes, dates, location and other related information.
 
 If a research grant was selected the date from and date to fields will be prefilled (when available).
 
 Description of Fields
+=====================
+
 Area of Research
+    Grouping of fields that categorise what type of project this is.
 
-Grouping of fields that categorise what type of project this is.
 Keywords    
-
-Provide a list of keywords for your project, keywords may be singular words or phrases.   
+    Provide a list of keywords for your project, keywords may be singular words or phrases.   
+    
 Fields of Research*
+    Select the most appropriate Field of Research (FOR) which is selecting the categories for the methodology used by your project.
 
-Select the most appropriate Field of Research (FOR) which is selecting the categories for the methodology used by your project.
+    To select a Field of Research select the most relevant entry in each of the three dropdown boxes then click the Add Field of Research button on the right side of the last dropdown box.
+    
+    Note:    
+        - It is valid to select a Field of Research after only selecting values for the first two dropdown boxes.
+        - You may enter 1-3 Field of Research codes.
+        - Field of Research codes are standardised by the Australian and New Zealand Standard Research Classification (ANZSRC)
 
-To select a Field of Research select the most relevant entry in each of the three dropdown boxes then click the Add Field of Research button on the right side of the last dropdown box.
-
-Note:
-
-        It is valid to select a Field of Research after only selecting values for the first two dropdown boxes.
-
-        You may enter 1-3 Field of Research codes.
-
-        Field of Research codes are standardised by the Australian and New Zealand Standard Research Classification (ANZSRC)
-
-Socio-Economic Objectives     
-
-Select the most appropriate Socio-Economic Objective (SEO) codes which is selecting an intended purpose or outcome of the research this project is recording.
-
-To select a Socio-Economic Objective select the most relevant entry in each of the three dropdown boxes then click the Add Field of Research button on the right side of the last dropdown box.
-
-Note:
-
-        It is valid to select a Socio-Economic Objective after only selecting values for the first two dropdown boxes.
-
-        You may enter 1-3 Socio-Economic Objective codes.
-
-        Socio-Economic Objective codes are standardised by the Australian and New Zealand Standard Research Classification (ANZSRC)
+Socio-Economic Objectives  
+    Select the most appropriate Socio-Economic Objective (SEO) codes which is selecting an intended purpose or outcome of the research this project is recording.
+    
+    To select a Socio-Economic Objective select the most relevant entry in each of the three dropdown boxes then click the Add Field of Research button on the right side of the last dropdown box.
+    
+    Note:    
+        - It is valid to select a Socio-Economic Objective after only selecting values for the first two dropdown boxes.
+        - You may enter 1-3 Socio-Economic Objective codes.    
+        - Socio-Economic Objective codes are standardised by the Australian and New Zealand Standard Research Classification (ANZSRC)
 
 Research Themes
-
-Select the most appropriate research theme.
-
-Note:
-
-    At least one research theme must be selected.
-
+    Select the most appropriate research theme.
+    
+    Note:    
+        - At least one research theme must be selected.
 
 Type of Research Activity
+    Select the most appropriate type of research activity for this project:
 
-Select the most appropriate type of research activity for this project:
-
-    Pure basic research is experimental and theoretical work undertaken to acquire new knowledge without looking for long term benefits other than the advancement of knowledge.
-
-    Strategic basic research is experimental and theoretical work undertaken to acquire new knowledge directed into specified broad areas in the expectation of useful discoveries. It provides the broad base of knowledge necessary for the solution of recognised practical problems.
-
-    Applied research is original work undertaken primarily to acquire new knowledge with a specific application in view. It is undertaken either to determine possible uses for the findings of basic research or to determine new ways of achieving some specific and predetermined objectives.
-
-    Experimental development is systematic work, using existing knowledge gained from research or practical experience, that is directed to producing new materials, products or devices, to installing new processes, systems and services, or to improving substantially those already produced or installed.
+    - Pure basic research is experimental and theoretical work undertaken to acquire new knowledge without looking for long term benefits other than the advancement of knowledge.
+    - Strategic basic research is experimental and theoretical work undertaken to acquire new knowledge directed into specified broad areas in the expectation of useful discoveries. It provides the broad base of knowledge necessary for the solution of recognised practical problems.
+    - Applied research is original work undertaken primarily to acquire new knowledge with a specific application in view. It is undertaken either to determine possible uses for the findings of basic research or to determine new ways of achieving some specific and predetermined objectives.
+    - Experimental development is systematic work, using existing knowledge gained from research or practical experience, that is directed to producing new materials, products or devices, to installing new processes, systems and services, or to improving substantially those already produced or installed.
 
 
-Note:
-
-    1297.0 Australian Standard Research Classification (ANZSRC) 2008.
+    Note:    
+        - 1297.0 Australian Standard Research Classification (ANZSRC) 2008.
 
 Project Date and Location  
-
-Grouping of date and location fields which is sometimes referred to as coverage.    
+    Grouping of date and location fields which is sometimes referred to as coverage.    
 
 Time Period (description)    
+    Provide a textual representation of the time period such as 'world war 2' or more information on the time within the dates provided.    
 
-Provide a textual representation of the time period such as 'world war 2' or more information on the time within the dates provided.    
+    Date data started/will start being collected*
 
-Date data started/will start being collected*
-
-The date that data started being collected.
-
-Note:
-
-        This is the actual data date not the finding date, recording date or other date. For example, an old letter may be found in 2013 but it was actually written in 1900 - the date to use is 1900.
-
+    The date that data started being collected.
+    
+    Note:    
+        - This is the actual data date not the finding date, recording date or other date. For example, an old letter may be found in 2013 but it was actually written in 1900 - the date to use is 1900.
 
 Date data stopped/will stop being collected     
-
-The date that data will stop being collected.
-
-Note:
-
-        This is the actual data date not the finding date, recording date or other date. For example, an old letter may be found in 2013 but it was actually written in 1900 - the date to use is 1900.
-
+    The date that data will stop being collected.
+    
+    Note:    
+        - This is the actual data date not the finding date, recording date or other date. For example, an old letter may be found in 2013 but it was actually written in 1900 - the date to use is 1900.
 
 Location
+    Provide the locations of this project, many locations may be entered as points, lines or polygons.
 
-Provide the locations of this project, many locations may be entered as points, lines or polygons.
-
-Locations can be added, edited or deleted using the controls in the top right corner of the map: Navigate or drag the map to the desired location. Draw a polygon (shape with any number of sides) of any shape. Draw a line which may have multiple line segments. Draw a rectangle (click and drag rather than clicking on each point). Draw a single point. Move points, this may be actual points or vertices of polygons and lines. Delete a location, this has the same effect as pressing the X.
-Name
-
-The name of the entered location, most research projects will have a code or name for each location such as Australian Wet Tropics or CU42A.
-Location
-
-Actual location formated in the WTK standard.
-
-Note:
-
-            If you want to enter a location manually as text it may be easier to add the location using the map first and edit the text that is provided.
+    Locations can be added, edited or deleted using the controls in the top right corner of the map: Navigate or drag the map to the desired location. Draw a polygon (shape with any number of sides) of any shape. Draw a line which may have multiple line segments. Draw a rectangle (click and drag rather than clicking on each point). Draw a single point. Move points, this may be actual points or vertices of polygons and lines. Delete a location, this has the same effect as pressing the X.
+    Name
+    
+    The name of the entered location, most research projects will have a code or name for each location such as Australian Wet Tropics or CU42A.
+    Location
+    
+    Actual location formated in the WTK standard.
+    
+    Note:    
+        - If you want to enter a location manually as text it may be easier to add the location using the map first and edit the text that is provided.
 
 Elevation
-
-Optionally, enter the elevation as meters above mean sea level (MSL).
-
-Note:
-
-            The entered elevation won’t be used in exported metadata records.
-
-
+    Optionally, enter the elevation as meters above mean sea level (MSL).
+    
+    Note:    
+        - The entered elevation won’t be used in exported metadata records.
+    
 Licenses & Access Rights
-
-Contains fields associated with licensing, getting access to the data and how the data can be used.
+    Contains fields associated with licensing, getting access to the data and how the data can be used.
 
 Access Rights     
-
-Select how interested 3rd parties can go about gaining access to the projects data.
+    Select how interested 3rd parties can go about gaining access to the projects data.
 
 License
-
-Select the most appropriate license from the list, if you require a different license please let the administrators know so they can add it for you when approving the project.
+    Select the most appropriate license from the list, if you require a different license please let the administrators know so they can add it for you when approving the project.
 
 Retention period
-
-Record the period of time that the data must be kept in line with institutional or funding body policies.
+    Record the period of time that the data must be kept in line with institutional or funding body policies.
 
 Related Publications     
-
-Provide details on any publications that are related to this project including their title and URL with an optional note.
+    Provide details on any publications that are related to this project including their title and URL with an optional note.
 
 Related Websites     
-
-Provide details on any websites that are related to this project including their title and URL with an optional note.
+    Provide details on any websites that are related to this project including their title and URL with an optional note.
 
 Attachments (Uploading to ReDBox isn't supported at this time)     
+    Optionally provide additional information as attachments.
 
-Optionally provide additional information as attachments.
-
-Note:
-
-    This should be added to all generated records but at the time of writing it is a limitation of the EnMaSSe integration with ReDBox.
-
+    Note:
+        - This should be added to all generated records but at the time of writing it is a limitation of the EnMaSSe integration with ReDBox.
 
 5. Methods
+++++++++++
 
 The methods page sets up ways of collecting data (data sources), what the data is or its type (data configuration) as well as collecting the methods name (used to generate record titles of associated datasets) and description of the detailed methodology (added as a note description to records).
 
@@ -507,149 +437,127 @@ Adding methods uses a simple wizard that allows selection of a method template. 
 
 The type of data being collected allows configuration of what data is collected and how that data is indexed:
 
-    Most methods will store raw data as a file and index specific information so it is searchable.
-
-    Standardised fields are provided for common data types (eg. temperature, humidity, etc).
-
-    Using the standardised fields will make the indexed data searchable globally within the data storage.
-
-    Data configuration allows full configuration of the data types as well as how to display the fields in a web form.
+- Most methods will store raw data as a file and index specific information so it is searchable.
+- Standardised fields are provided for common data types (eg. temperature, humidity, etc).
+- Using the standardised fields will make the indexed data searchable globally within the data storage.
+- Data configuration allows full configuration of the data types as well as how to display the fields in a web form.
 
 Selection of the data source specifies how data will be ingested but configuration of the data source is done in the datasets step.
 
-Figure X:  Methods page
+*Figure X:  Methods page*
 
 Description of Fields
+=====================
+
 Method Name
+    Provide a short, descriptive name for this method of collecting data.
 
-Provide a short, descriptive name for this method of collecting data.
-
-The entered name will be used in the generated dataset record as:
-
-<project title> at <location name>(<lat, long, height>) collected by <method name>
-
-The name and description will also be used to identify the method used in the datasets step.
+    The entered name will be used in the generated dataset record as:
+    
+    <project title> at <location name>(<lat, long, height>) collected by <method name>
+    
+    The name and description will also be used to identify the method used in the datasets step.
 
 Description
-
-Provide a description of this method, this should include what, why and how the data is being collected.
-
-Note:
-
-    The entered description will be added as note descriptions to the metadata records associated with this method.
-
-    Don't enter where or when as this information is relevant to the dataset, not the method.
+    Provide a description of this method, this should include what, why and how the data is being collected.
+    
+    Note:    
+        - The entered description will be added as note descriptions to the metadata records associated with this method.
+        - Don't enter where or when as this information is relevant to the dataset, not the method.
 
 
 Data Source (How the data gets transferred into this system)
-
-Select the way you would like to ingest data for your project.
+    Select the way you would like to ingest data for your project.
 
 'Web form/manual' is the default (other data sources also allow adding data through a web form), 'Output from other dataset' provides advanced processing features and the other three methods allow automatic ingestion from compatible sensors or services:
-
-    Web form/manual only: Only use an online form accessible through this interface to manually upload data (No configuration required).
-
-    Pull from external file system: Setup automatic polling of an external file system from a URL location, when new files of the correct type and naming convention are found they are ingested (Configuration required on datasets page).
-
-    (Advanced) Push to this website through the API: Use the XMLRPC API to directly push data into persistent storage, on project acceptance you will be emailed your API key and instructions (No configuration required).
-
-    Sensor Observation Service: Set-up a sensor that implements the Sensor Observation Service (SOS) to push data into this systems SOS server (Configuration required on datasets page).
-
-    (Advanced) Output from other dataset: Output from other dataset: This allows for advanced/chained processing of data, where the results of another dataset can be further processed and stored as required (Configuration required on datasets page).
+    
+- **Web form/manual only:** Only use an online form accessible through this interface to manually upload data (No configuration required).
+- **Pull from external file system:** Setup automatic polling of an external file system from a URL location, when new files of the correct type and naming convention are found they are ingested (Configuration required on datasets page).
+- **(Advanced) Push to this website through the API:** Use the XMLRPC API to directly push data into persistent storage, on project acceptance you will be emailed your API key and instructions (No configuration required).
+- **Sensor Observation Service:** Set-up a sensor that implements the Sensor Observation Service (SOS) to push data into this systems SOS server (Configuration required on datasets page).
+- **(Advanced) Output from other dataset:** Output from other dataset: This allows for advanced/chained processing of data, where the results of another dataset can be further processed and stored as required (Configuration required on datasets page).
 
 
-Note:
-
-    It will be possible to change the data source once the project has been submitted and approved.
-
-    Refer to the Data Concepts section for a more indepth explanation of data sources. 
-
+    Note:    
+        - It will be possible to change the data source once the project has been submitted and approved.    
+        - Refer to the Data Concepts section for a more indepth explanation of data sources. 
 
 Data Configuration  
+    Data configurations setup how ingested data will be stored and what data will be searchable.
 
-Data configurations setup how ingested data will be stored and what data will be searchable.
-
-Note:
-
-    Refer to the Data Concepts section for a more indepth explanation of data configuration.   
-
-    Data configuration cannot change once the project is submitted and approved.    
+    Note:    
+        - Refer to the Data Concepts section for a more indepth explanation of data configuration.       
+        - Data configuration cannot change once the project is submitted and approved.    
 
 Standardised data fields (Recommended where possible)
-
-Standardised fields allow you to extend commonly used data configurations, this makes it both easier for you and collects more uniform data (which makes it easier to search).
-
-Select the type of data you want to use and click the Add Standard Data Field button.
-
-Note:
-
-    It is a current limitation that you can only each type of standardised field once.
-
-
+    Standardised fields allow you to extend commonly used data configurations, this makes it both easier for you and collects more uniform data (which makes it easier to search).
+    
+    Select the type of data you want to use and click the Add Standard Data Field button.
+    
+    Note:    
+        - It is a current limitation that you can only each type of standardised field once.
+    
 Custom Fields
-
-Each custom field adds an indexed (searchable) field to your data configuration.
-
-Add additional custom fields by clicking the Add Custom Field at the bottom of the list of custom fields.
-
-Note:
-
-    It is highly recommended that you refer to the Data Concepts section.
-
+    Each custom field adds an indexed (searchable) field to your data configuration.
+    
+    Add additional custom fields by clicking the Add Custom Field at the bottom of the list of custom fields.
+    
+    Note:    
+        - It is highly recommended that you refer to the Data Concepts section.
 
 Name    
+    Provide a name for your field.
 
-        Provide a name for your field.
 Description
+    Describe to other users what the purpose of this field is.
 
-Describe to other users what the purpose of this field is.
 Field Type
+    Select what type of data this field represents.
 
-Select what type of data this field represents.
 Units (Integer, Decimal)
+    Enter the units for this field, this will sometimes be not applicable and you can leave it blank.
 
-Enter the units for this field, this will sometimes be not applicable and you can leave it blank.
 Mime Type (File)
+    Provide a mime type for your file (eg. text/json)
 
-Provide a mime type for your file (eg. text/json)
 Example (Single line text, Multi line text)
+    Provide an example of the sort of text expected.
 
-Provide an example of the sort of text expected.
 Default Value (All)
+    Enter a default value, this will be the value used if no value is given.
 
-Enter a default value, this will be the value used if no value is given.
 List of Values (Dropdown box, multiple choice)    
+    Provide a comma-separated list of options (eg. Red, Blue, Green)
 
-Provide a comma-separated list of options (eg. Red, Blue, Green)
 Admin Notes (All)   
+    If you need help from the administrators provide a description of your requirements for this field.
 
-If you need help from the administrators provide a description of your requirements for this field.
 Attachment (Such as datasheets, collection processes, observation forms)      
+    Attach files that provide more information on your data collection method.  For example, this may include data sheets for sensors used or in-depth detail on the methodology or calibration methods used.
 
-Attach files that provide more information on your data collection method.  For example, this may include data sheets for sensors used or in-depth detail on the methodology or calibration methods used.
-
-To add an attachment:
-
-    Click on the browse button.
-
-    Find the file on your local computer.
-
-    Click the open button.
+    To add an attachment:
+    
+        Click on the browse button.
+    
+        Find the file on your local computer.
+    
+        Click the open button.
 
 
-Further information website (Such as manufacturers website or supporting web resources)     
+Further information website (Such as manufacturers website or supporting web resources)
+    Provide information on any websites that describe your data collection method, this is similar to attachments but provide website links instead of the file itself.
 
-Provide information on any websites that describe your data collection method, this is similar to attachments but provide website links instead of the file itself.
 Title
+    Provide a name for the linked website.
 
-Provide a name for the linked website.
 URL
+    Enter the website address.
 
-Enter the website address.
 Notes
+    Optionally add a note about why the website was linked to.
 
-Optionally add a note about why the website was linked to.
 6. Datasets
++++++++++++
 
 Each dataset represents an individual collection of data with an associated metadata record (metadata record generation can be disabled).
 
@@ -657,162 +565,144 @@ Adding datasets uses a simple wizard where the data collection method is selecte
 
 The dataset page collects the following data:
 
-    Whether to create a metadata record and when the record should be published.
-
-    Location of the data, the location may be a set location or an offset from a location where that is more relevent. For example it is more relevent that the sensor shown is 1m from the base of the artificial tree.
-
-    Configuration of the data source.
+- Whether to create a metadata record and when the record should be published.
+- Location of the data, the location may be a set location or an offset from a location where that is more relevent. For example it is more relevent that the sensor shown is 1m from the base of the artificial tree.
+- Configuration of the data source.
 
 Each data source is configured differently but will usually require the data location, when to sample and how to process the found data.
 
-Figure X:  Datasets page.
+*Figure X:  Datasets page.*
 
 Description of Fields
+=====================
+
 Publish Metadata Record (Publicly advertise that this data exists)  
+    Un-select this checkbox if the dataset shouldn’t export a metadata record.  This option has been provided tentatively as there are some valid reasons to not create records such as:
 
-Un-select this checkbox if the dataset shouldn’t export a metadata record.  This option has been provided tentatively as there are some valid reasons to not create records such as:
+    - Testing or administration purposes.
+    - Datasets that use a dataset data source for intermediary processing and the created data isn’t a usable end result.
 
-    Testing or administration purposes.
-
-    Datasets that use a dataset data source for intermediary processing and the created data isn’t a usable end result.
-
-
-Note:
-
-    We would like to encourage as many datasets be published as possible (this is the purpose of the EnMaSSe system!).
-
+    Note:    
+        - We would like to encourage as many datasets be published as possible (this is the purpose of the EnMaSSe system!).
 
 Date to publish
-
-When should this metadata record be published?  Update the publish date if it shouldn’t be published right away.
-
-Note:
-
-    The publish date will be pre-filled to todays date.
-
-    If the publish metadata record is un-selected this field will be hidden.
-
+    When should this metadata record be published?  Update the publish date if it shouldn’t be published right away.
+    
+    Note:    
+        - The publish date will be pre-filled to todays date.    
+        - If the publish metadata record is un-selected this field will be hidden.
 
 Location
+    Provide the location of this dataset, only one point location may be entered.
 
-Provide the location of this dataset, only one point location may be entered.
-
-Controls for adding points or navigating the map are located at the top right corner of the map: Navigate or drag the map to the desired location. Draw a single point.
-Name
-
-The name of the entered location, most research projects will have a code or name for each location such as Australian Wet Tropics or CU42A.
-Location
-
-Actual location formated in the WTK standard.
-
-Note:
-
-            If you want to enter a location manually as text it may be easier to add the location using the map first and edit the text that is provided.
+    Controls for adding points or navigating the map are located at the top right corner of the map: Navigate or drag the map to the desired location. Draw a single point.
+    Name
+    
+    The name of the entered location, most research projects will have a code or name for each location such as Australian Wet Tropics or CU42A.
+    Location
+    
+    Actual location formated in the WTK standard.
+    
+    Note:    
+        - If you want to enter a location manually as text it may be easier to add the location using the map first and edit the text that is provided.
 
 Elevation
-
-Optionally, enter the elevation as meters above mean sea level (MSL).
-
-Note:
-
-            Dataset location will be pre-filled to the project location if the project had a valid point location before the dataset is created.
-
-            The entered elevation won’t be used in exported metadata records but it will be used in the record title.
-
+    Optionally, enter the elevation as meters above mean sea level (MSL).
+    
+    Note:
+        - Dataset location will be pre-filled to the project location if the project had a valid point location before the dataset is created.
+        - The entered elevation won’t be used in exported metadata records but it will be used in the record title.
 
 Location Offset (optional)      
+    Providing a location offset means that the actual location used will be offset from the location entered above.
 
-Providing a location offset means that the actual location used will be offset from the location entered above.
+    This may seem odd but it is useful where the important information is the distance from somewhere rather than the actual point on earth.  
+    
+    For example, you may have many sensors spaced around a central point - it would then make sense to enter the project location at the centre and set each dataset to offset from that location.
 
-This may seem odd but it is useful where the important information is the distance from somewhere rather than the actual point on earth.  
+Latitude Offset (meters)    
+    How far the location latitude should be offset in meters, this can be positive or negative.
 
-For example, you may have many sensors spaced around a central point - it would then make sense to enter the project location at the centre and set each dataset to offset from that location.
-Latitude Offset (meters)
+Longitude Offset (meters)    
+    How far the location longitude should be offset in meters, this can be positive or negative.
 
-How far the location latitude should be offset in meters, this can be positive or negative.
-Longitude Offset (meters)
-
-How far the location longitude should be offset in meters, this can be positive or negative.
 Elevation Offset (meters)
-How far the location height above mean sea level should be offset in meters, this can be positive or negative.
-
+    How far the location height above mean sea level should be offset in meters, this can be positive or negative.
   
 7. Submit
++++++++++
 
 Submit provides full project validation and an overview of the generated records and data ingesters. The project has four states:
 
-    Open - The initial state when a project is created, the creator and administrators have read/write access. The creator can also share permissions with other users.
+- Open - The initial state when a project is created, the creator and administrators have read/write access. The creator can also share permissions with other users.
+- Submitted - When the project is submitted by the creator it is ready to be reviewed by the administrators and either approved or reopened. A project can only be submitted when there are no validation errors. In the submitted state creators have read access and administrators have read/write access.
+- Approved - When an administrator approves the project:
 
-    Submitted - When the project is submitted by the creator it is ready to be reviewed by the administrators and either approved or reopened. A project can only be submitted when there are no validation errors. In the submitted state creators have read access and administrators have read/write access.
+    - Metadata records are exported to ReDBox.
+    - Data ingesters are configured and started.
+    - The project can no longer be modified, the creator and administrators only have read access.
 
-    Approved - When an administrator approves the project:
-
-        Metadata records are exported to ReDBox.
-
-        Data ingesters are configured and started.
-
-        The project can no longer be modified, the creator and administrators only have read access.
-
-    Disabled - This state represents the end of the project, when an administrator disables an approved project it disables all ingesters (no more data will be ingested).
+- Disabled - This state represents the end of the project, when an administrator disables an approved project it disables all ingesters (no more data will be ingested).
 
 The generated record for each dataset can be viewed, edited or reset. Viewing a dataset record is exactly the same as general details, descriptions and information all on a single form.
 
 Description of Fields
+=====================
+
 Validation
-
-The validation section lists all errors that need to be fixed before the project can continue on to the next step.
-
-The submit and approve buttons will be hidden if there are any validation errors.
-
-Validation errors are categorised per page, giving the name of the field and the error message.  
+    The validation section lists all errors that need to be fixed before the project can continue on to the next step.
+    
+    The submit and approve buttons will be hidden if there are any validation errors.
+    
+    Validation errors are categorised per page, giving the name of the field and the error message.  
 
 Summary of Datasets & Records
+    Provides a quick overview of all datasets in the project along with:
 
-Provides a quick overview of all datasets in the project along with:
-
-    Link to their data management page.
-
-    Link to exported metadata records (if the project has already been approved).
-
-    Link to create and/or view the metadata that will be exported.
-
-    Option to reset all modifications to that specific datasets metadata.
-
+    - Link to their data management page.
+    - Link to exported metadata records (if the project has already been approved).
+    - Link to create and/or view the metadata that will be exported.
+    - Option to reset all modifications to that specific datasets metadata.
 
 Project Notes
-
-Add notes to the project, these will be visible to everyone with view access and are a simple way of communicating between administrators and users.
+    Add notes to the project, these will be visible to everyone with view access and are a simple way of communicating between administrators and users.
 
 Managing & Searching Data
+-------------------------
 
 There will be the following pages/functionality:
 
-    Search projects/datasets/data entry’s
-
-    View datasets with some options to edit data source
-
-    View/edit/add data entry’s
-
-    Each step will use the contextual menu to navigate between each other (eg. when on the datasets page you can click to view the project or click to view all associated data enties).
+- Search projects/datasets/data entry’s
+- View datasets with some options to edit data source
+- View/edit/add data entry’s
+- Each step will use the contextual menu to navigate between each other (eg. when on the datasets page you can click to view the project or click to view all associated data enties).
 
 Project Lifecycle
+-----------------
 
-Figure X:  Project life cycle
+*Figure X:  Project life cycle*
 
 Projects in the EnMaSSe system follow the life cycle illustrated in figure X above, generally you will only need to submit the project for administrator approval, but the whole process has been illustrated here for completeness.
 
 Open
+++++
 
 The open state is for initial setup of the project including all configurations ready to create metadata records and setup data ingestion.  
 
 Once the project has been fully configured the user should go to the submit page to and click the submit button to indicate that the project is ready for administrator approval.
+
 Permitted
+=========
 
 Creator, administrators and users that have been given share permissions can edit the full configuration of the project.
+
 Not permitted
+=============
 
 Nobody can view logs, enter data or access any data management as the project hasn’t been activated yet.
+
 Submitted
++++++++++
 
 The submitted state is for administrators to check the project configurations are correct and the project is ready to be approved for metadata record generation and data ingestion set up.
 
@@ -821,28 +711,36 @@ Once the administrator has checked that the configurations are correct they shou
 If the administrator requires the creator to update the configurations they should press the reopen button on the submit page.
 
 Permitted
+=========
 
 Administrators can edit the full configuration of the project.
 
 Not permitted
+=============
 
 Nobody can view logs, enter data or access any data management as the project hasn’t been activated yet.
 
 Non-administrators cannot edit anything.
+
 Active
+++++++
 
 An active project has had all metadata records generated and exported and the data ingesters are currently running.
 
 Once a project has come to the end of its life either the project creator, administrator or user with adequate permission shared should press the disable button on the submit page.  Pressing the disable button will deactivate data ingestion, all data and metadata records will be maintained.
 
 Permitted
+=========
 
 The project creator, administrators and users with shared permissions can access the data maintenance sections which allow adding/editing of data and limited updating of ingesters.
 
 Not permitted
+=============
 
 Project configurations can no longer be edited by anyone.
+
 Disabled
+++++++++
 
 The disabled state is where the project is finished but all data and metadata records are persisted.
 
@@ -851,37 +749,33 @@ If the project needs to be re-activated (there is more data to ingest) the re-en
 If this is a project that was set up wrong to begin with and has no valid data, the super administrator can delete it.  Once the project is deleted it cannot be recovered, this functionality is only intended for administration and cleanup purposes and would never be used in an ideal world.
 
 Permitted
+=========
 
 The project creator, administrators and users with shared permissions can access the data maintenance sections which allow adding/editing of data and limited updating of ingesters.
 
 Not permitted
+=============
 
 Project configurations can no longer be edited by anyone.
 
 Permissions & Sharing
+---------------------
 
 When on a project page there is a sharing option in the left hand contextual options menu which allows the project creator (or administrators) to give other users permissions for on the currently viewed project:
 
-    View allows the user to view project configurations.
+- **View** allows the user to view project configurations.
+- **Edit** allows the user to view and edit the project configurations.
+- **Submit** allows the user to press the submit button requesting administrator approval.
+- *Disable** allows the user to press the disable button to deactivate data ingestion.
+- **Re-enable** allows the user to press the re-enable button to reactivate data ingestion.
+- **View Data** allows users to view ingested data.
+- **Manage Data** allows the user to view and edit ingested data.
+- **Manage Ingesters** allows the user to update ingester configurations (eg. how ingested data is processed).
 
-    Edit allows the user to view and edit the project configurations.
-
-    Submit allows the user to press the submit button requesting administrator approval.
-
-    Disable allows the user to press the disable button to deactivate data ingestion.
-
-    Re-enable allows the user to press the re-enable button to reactivate data ingestion.
-
-    View Data allows users to view ingested data.
-
-    Manage Data allows the user to view and edit ingested data.
-
-    Manage Ingesters allows the user to update ingester configurations (eg. how ingested data is processed).
-
-
-Note:  Users must be within the EnMaSSe system before permissions can be shared with them.  If  you cannot find the user you are looking for, ask them to login and then they should be available.
+**Note:**  Users must be within the EnMaSSe system before permissions can be shared with them.  If  you cannot find the user you are looking for, ask them to login and then they should be available.
 
 Dataset Event Logs
+------------------
 
 When on a project page there is a view logs option in the left hand contextual options menu which allows the user to see any error messages or state changes of the data ingestion.
 
@@ -889,11 +783,9 @@ By default all logs for all datasets will be displayed as they are loaded, you c
 
 Log filtering options include:
 
-    Log level which is the category or type of message such as error or information.
-
-    Start date is the date of the earliest logs to show.
-
-    End date is the date of the last logs to show.
+- Log level which is the category or type of message such as error or information.
+- Start date is the date of the earliest logs to show.
+- End date is the date of the last logs to show.
 
 
 
