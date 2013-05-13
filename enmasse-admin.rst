@@ -3,217 +3,119 @@ EnMaSSe Administrator Documentation
 =================
 
 Contents:
+---------
 
 .. toctree::
    :maxdepth: 2
 
-   provisioning-admin
-   redbox-admin
+Overview
+--------
 
+*This guide explains how to setup and administer the Environmental Monitoring and sensor storage (EnMaSSe) application.*
 
-
-This guide explains how to setup and administer the Environmental Monitoring and sensor storage (EnMaSSe) application.
-
-This guide doesn’t cover how to use the system and it is recommended that administrators first read the user guides.
+*This guide doesn’t cover how to use the system and it is recommended that administrators first read the user guides.*
 
 There are a number of integrated systems to setup and configure:
 
-    Provisioning interface - This is the interface that end users will interact with.
-
-    Ingester platform - Handles data streaming and data storage.
-
-    ReDBox - Provides a host of metadata functionality including publishing to ANDS.  ReDBox is an open source 3rd party software and only EnMaSSe specific configuration is included in this document.
-
-    Shibboleth - Is a federated authentication system that wraps the application. Shibboleth is 3rd party software and only an overview of our experiences and recommendations are provided in this document.
-
-    CC-DAM - Is the data storage implementation chosen for our implementation and deployment of EnMaSSe.  CC-DAM is proprietary 3rd party software and out of the scope of this documentation, please contact CoastalComs for further information.
-
+- **Provisioning interface** - This is the interface that end users will interact with.
+- **Ingester platform** - Handles data streaming and data storage.
+- **ReDBox** - Provides a host of metadata functionality including publishing to ANDS.  ReDBox is an open source 3rd party software and only EnMaSSe specific configuration is included in this document.
+- **Shibboleth** - Is a federated authentication system that wraps the application. Shibboleth is 3rd party software and only an overview of our experiences and recommendations are provided in this document.
+- **CC-DAM** - Is the data storage implementation chosen for our implementation and deployment of EnMaSSe.  CC-DAM is proprietary 3rd party software and out of the scope of this documentation, please contact CoastalComs for further information.
 
 Log files can be found under:
 
-    Provisioning intererface -> <install location>/src/jcu.dc24.provisioning/provisioning.log
-
-    Ingester platform -> <install location>/src/jcu.dc24.ingesterplatform/platform.log
-
+- Provisioning intererface -> <install location>/src/jcu.dc24.provisioning/provisioning.log
+- Ingester platform -> <install location>/src/jcu.dc24.ingesterplatform/platform.log
 
 Installation & Configuration
 -----------------------------
 
 The EnMaSSe system has source code in a number of repositories including:
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-    https://github.com/jcu-eresearch/EnMaSSe-Deployment.git
-
-    https://github.com/jcu-eresearch/TDH-rich-data-capture.git
-
-    https://github.com/jcu-eresearch/TDH-dc24-ingester-platform.git
-
-    https://github.com/jcu-eresearch/jcu.dc24.ingesterapi.git
-
-    https://github.com/jcu-eresearch/python-simplesos.git
-
-    https://github.com/davidjb/ColanderAlchemy.git branch=davidjb
-
+- https://github.com/jcu-eresearch/EnMaSSe-Deployment.git
+- https://github.com/jcu-eresearch/TDH-rich-data-capture.git
+- https://github.com/jcu-eresearch/TDH-dc24-ingester-platform.git
+- https://github.com/jcu-eresearch/jcu.dc24.ingesterapi.git
+- https://github.com/jcu-eresearch/python-simplesos.git
+- https://github.com/davidjb/ColanderAlchemy.git branch=davidjb
 
 The good part is that deployment is provided using buildout which will pull the sources from all the associated repositories and set them up correctly.
 
-Full deployment of EnMaSSe is documented and provided by the jcu-eresearch/EnMaSSe-Deployment repository, a summary of the full instructions is:
+.. _`jcu-eresearch/EnMaSSe`: https://github.com/jcu-eresearch/EnMaSSe-Deployment
 
-    Install Python 2.7 with the required packages and development libraries (see repo for full commands).
+Full deployment of EnMaSSe is documented and provided by the `jcu-eresearch/EnMaSSe`_ repository, a summary of the full instructions is:
 
-    Checkout the EnMaSSe-Deployment repository.
-
-    Create a virtualenv and pip install zc.buildout distribute uwsgi.
-
-    Run buildout.
-
-    Set the provisioning interface and ingester platform up as services.
+#. Install Python 2.7 with the required packages and development libraries (see repo for full commands).
+#. Checkout the EnMaSSe-Deployment repository.
+#. Create a virtualenv and pip install zc.buildout distribute uwsgi.
+#. Run buildout.
+#. Set the provisioning interface and ingester platform up as services.
 
 Interface/Application
++++++++++++++++++++++
 
 Configuration of the provisioning interface is provided through the production.ini file located in the base provisioning interface directory (<install location>/src/jcu.dc24.provisioning/production.ini).
 
-Application specific configuration values (Compulsory items are bold):
+Application specific configuration values (**Compulsory items are bold**):
 
-sqlalchemy.url
-   
-
-MySQL username, password, address and database.
-
-ingesterapi.url
-	
-
-Address of the ingester platform, in most situations this shouldn’t change unless you require custom ingester platform configuration.
-
-ingesterapi.username
-	
-
-Ingester platform username as configured.
-
-ingesterapi.password
-	
-
-Ingester platform password as configured.
-
-mint.location
-	
-
-Location of the Mint name authority for looking up users.
-
-redbox.url
-	
-
-Location of the ReDBox installation.
-
-redbox.search_url
-	
-
-Location of ReDBox search url (prepended to redbox.url)
-
-redbox.alert_url
-	
-
-Location of the ReDBox alert url (prepended to redbox.url).  ReDBox will read and ingest records when this url is hit.
-
-redbox.ssh_host
-	
-
-SSH Address for the ReDBox server.
-
-redbox.ssh_port
-	
-
-SSH port to use for connecting to the ReDBox server.
-
-redbox.rsa_private_key
-	
-
-Location of the SSH Private key for the ReDBox server.
-
-redbox.ssh_username
-	
-
-SSH username to use for connecting to the ReDBox server.
-
-redbox.ssh_password
-	
-
-Either the SSH password or the private key password (may be blank if using an SSH key that isn’t password protected).
-
-redbox.ssh_harvest_dir
-	
-
-Location to upload generated record XML files to.
-
-redbox.local_config_file
-	
-
-Where the ReDBox field mappings file will be saved to. The mapping file is generated when the provisioning interface is started.
-
-redbox.identifier_pattern
-	
-
-Prefix for all generated ReDBox identifiers.
-
-provisioning.for_codes
-	
-
-CSV File that contains FOR codes.
-
-provisioning.seo_codes
-	
-
-CSV File that contains SEO codes.
-
-workflows.files
-	
-
-Location that file uploads are saved to, this isn’t contained in temp as some file uploads need to be persistent (such as files attached to project or method templates).
-
-tmpdir
-	
-
-Temporary directory
-
-pyramid_deform.tempdir
-	
-
-Temporary directory for pyramid/application specific files.
-
-mint.tmpdir
-	
-
-Temporary directory for mint specific files.
-
-redbox.tmpdir
-	
-
-Temporary directory for ReDBox specific files.  This is used to write record XML to be transferred to ReDBox using SFTP.
-
-session.secret
-	
-
-Secret/password that your session uses (random generated number).
-
-host
-	
-
-(non-UWSGI server) IP Addresses that your server will accept.
-
-port
-	
-
-(non-UWSGI server) Port that the provisioning interface can be accessed on.
-
-base_dir
-	
-
-base installation directory of the provisioning interface
-
-socket
-	
-
-(UWSGI server) IP addresses to accept and the port that the UWSGI container will be accessible on.
++---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| sqlalchemy.url            |  MySQL username, password, address and database. |                                                                                                                        |
++---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ingesterapi.url           | Address of the ingester platform, in most situations this shouldn’t change unless you require custom ingester platform configuration.                                     |
++---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ingesterapi.username      | Ingester platform username as configured.                                                                                                                                 |
++---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ingesterapi.password      | Ingester platform password as configured.                                                                                                                                 |
++---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| mint.location             | Location of the Mint name authority for looking up users.                                                                                                                 |
++---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| redbox.url                | Location of the ReDBox installation.                                                                                                                                      |
++---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| redbox.search_url         | Location of ReDBox search url (prepended to redbox.url)                                                                                                                   |
++---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| redbox.alert_url          | Location of the ReDBox alert url (prepended to redbox.url).  ReDBox will read and ingest records when this url is hit.                                                    |
++---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| redbox.ssh_host           | SSH Address for the ReDBox server.                                                                                                                                        |
++---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| redbox.ssh_port           | SSH port to use for connecting to the ReDBox server.                                                                                                                      |
++---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| redbox.rsa_private_key    | Location of the SSH Private key for the ReDBox server.                                                                                                                    |
++---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| redbox.ssh_username       | SSH username to use for connecting to the ReDBox server.                                                                                                                  |
++---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| redbox.ssh_password       | Either the SSH password or the private key password (may be blank if using an SSH key that isn’t password protected).                                                     |
++---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| redbox.ssh_harvest_dir    | Location to upload generated record XML files to.                                                                                                                         |
++---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| redbox.local_config_file  | Where the ReDBox field mappings file will be saved to. The mapping file is generated when the provisioning interface is started.                                          |
++---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| redbox.identifier_pattern | Prefix for all generated ReDBox identifiers.                                                                                                                              |
++---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| provisioning.for_codes    | CSV File that contains FOR codes.                                                                                                                                         |
++---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| provisioning.seo_codes    | CSV File that contains SEO codes.                                                                                                                                         |
++---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| workflows.files           | Location that file uploads are saved to, this isn’t contained in temp as some file uploads need to be persistent (such as files attached to project or method templates). |
++---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| tmpdir                    | Temporary directory                                                                                                                                                       |
++---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| pyramid_deform.tempdir    | Temporary directory for pyramid/application specific files.                                                                                                               |
++---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| mint.tmpdir               | Temporary directory for mint specific files.                                                                                                                              |
++---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| redbox.tmpdir             | Temporary directory for ReDBox specific files.  This is used to write record XML to be transferred to ReDBox using SFTP.                                                  |
++---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| session.secret            | Secret/password that your session uses (random generated number).                                                                                                         |
++---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| host                      | (non-UWSGI server) IP Addresses that your server will accept.                                                                                                             |
++---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| port                      | (non-UWSGI server) Port that the provisioning interface can be accessed on.                                                                                               |
++---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| base_dir                  | base installation directory of the provisioning interface                                                                                                                 |
++---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| socket                    | (UWSGI server) IP addresses to accept and the port that the UWSGI container will be accessible on.                                                                        |
++---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Other settings can be changed as per their documentation:
 
