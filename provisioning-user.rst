@@ -707,7 +707,7 @@ Project Lifecycle
 -----------------
 
 .. image:: _static/project-lifecycle.png
-   :align: right
+   :align: center
 
 *Figure 8:  Project life cycle*
 
