@@ -187,146 +187,87 @@ There are 2 steps to configuring the EnMaSSe alerts harvester:
 
 #. Copy the enmasse-alerts folder from the root folder of the github repository and add it to <redbox installation dir>/home/harvest/
 #. Update the <redbox installation dir>/home/system-config.json file as illustrated below:
-	
-	..
-		{	
-		    ...	
-		       "houseKeeping": {	
-		           "config": {	
-		               "quartzConfig": "${fascinator.home}/quartz.properties",	
-		               "desktop": true,	
-		               "frequency": "3600",	
-		               "jobs": [	
-		                   ...	
+
+:: 
+
+	{	
+		...	
+		"houseKeeping": {	
+	    	"config": {	
+	        	"quartzConfig": "${fascinator.home}/quartz.properties",	
+	            "desktop": true,	
+	            "frequency": "3600",	
+	            "jobs": [	
+		            ...	
 		            {	
-		                   "name": "newalerts-enmasse",	
-		                   "type": "external",	
-		         "url": "http://localhost:${jetty.port}/redbox/default/hkjobs/newalerts.script",        	
-		"timing": "0 0 1 * * ?"	
-		           }	
-		               ]	
-		           }	
-		       ...	
-		    "new-alerts": {	
-		       "alertSet": [	
-		           {	
-		               "name": "EnMaSSe Provisioning",	
-		               "path": "${fascinator.home}/harvest/enmasse-alerts",	
-		               "harvestConfig": "${fascinator.home}/harvest/enmasse-alerts/config/enmasse-dataset.json",	
-		               "handlers": {"xml": "XMLAlertHandler"},	
-		               "baseline": {	
-		                   "workflow_source": "EMAS Alert"	
-		                   "viewId": "default",	
-		                   "packageType": "dataset",	
-		                   "redbox:formVersion": "1.5.2",	
-		                   "redbox:newForm": "true",	
-		                     "redbox:submissionProcess.redbox:submitted": "true",	
-		                   "xmlns:dc": "http://dublincore.org/documents/2008/01/14/dcmi-terms/",	
-		                   "xmlns:foaf": "http://xmlns.com/foaf/spec/",	
-		                   "xmlns:anzsrc": "http://purl.org/anzsrc/",	
-		                   "dc:type.rdf:PlainLiteral": "dataset",	
-		                   "dc:type.skos:prefLabel": "Dataset",	
-		                   "dc:language.dc:identifier": "http://id.loc.gov/vocabulary/iso639-2/eng",	
-		                   "dc:language.skos:prefLabel": "English"	
-		               },	
-		               "timestampFields": ["redbox:submissionProcess.dc:date"],              	
-		               "XMLAlertHandlerParams": {	
-		                   "configMap": {	
-		                       "xml": {"xmlMap": "${fascinator.home}/harvest/enmasse-alerts/config/enmasseXmlMap.json"}        	
-		                   }	
-		               }
-		           }	
-		       ],	
-		       "baseline": {	
-		           "viewId": "default",	
-		           "packageType": "dataset",	
-		           "redbox:formVersion": "1.5.2",	
-		           "redbox:newForm": "true",	
-		           "redbox:submissionProcess.redbox:submitted": "true"	
-		       }	
-		    ...	
-		}
+		            	"name": "newalerts-enmasse",	
+		                "type": "external",	
+		        		"url": "http://localhost:${jetty.port}/redbox/default/hkjobs/newalerts.script",        	
+						"timing": "0 0 1 * * ?"	
+		           	}	
+	           	]	
+			}	
+	    ...	
+	    "new-alerts": {	
+	    	"alertSet": [	
+	        	{	
+	            	"name": "EnMaSSe Provisioning",	
+	               	"path": "${fascinator.home}/harvest/enmasse-alerts",	
+	               	"harvestConfig": "${fascinator.home}/harvest/enmasse-alerts/config/enmasse-dataset.json",	
+	               	"handlers": {"xml": "XMLAlertHandler"},	
+	               	"baseline": {	
+	                	"workflow_source": "EMAS Alert"	
+	                   	"viewId": "default",	
+	                   	"packageType": "dataset",	
+	                   	"redbox:formVersion": "1.5.2",	
+	                   	"redbox:newForm": "true",	
+	                   	"redbox:submissionProcess.redbox:submitted": "true",	
+	                   	"xmlns:dc": "http://dublincore.org/documents/2008/01/14/dcmi-terms/",	
+	                   	"xmlns:foaf": "http://xmlns.com/foaf/spec/",	
+	                   	"xmlns:anzsrc": "http://purl.org/anzsrc/",	
+	                   	"dc:type.rdf:PlainLiteral": "dataset",	
+	                   	"dc:type.skos:prefLabel": "Dataset",	
+	                   	"dc:language.dc:identifier": "http://id.loc.gov/vocabulary/iso639-2/eng",	
+	                   	"dc:language.skos:prefLabel": "English"	
+	               	},	
+	               	"timestampFields": ["redbox:submissionProcess.dc:date"],              	
+	               	"XMLAlertHandlerParams": {	
+		                "configMap": {	
+		                	"xml": {"xmlMap": "${fascinator.home}/harvest/enmasse-alerts/config/enmasseXmlMap.json"}        	
+		                }	
+	          		}
+				}	
+			],	
+	       	"baseline": {	
+	           	"viewId": "default",	
+	           	"packageType": "dataset",	
+	           	"redbox:formVersion": "1.5.2",	
+	           	"redbox:newForm": "true",	
+	           	"redbox:submissionProcess.redbox:submitted": "true"	
+	       	}	
+	    ...	
+	}
 
 Project Management
+------------------
 
 A project workflow has been setup to encourage ease of use while allowing administrators to maintain a high quality of data and metadata.
 
 EnMaSSe has the following possible states:
 
-State
-	
-
-Transition
-	
-
-Group/  Permission
-	
-
-State Description
-
-Open
-	
-
-Submitted
-	
-
-CREATOR/ SUBMIT
-	
-
-Project is open for all users with write permission to edit.
-
-Submitted
-	
-
-Open
-
-Approve
-	
-
-ADMIN/
-
-REOPEN,
-
-ADMIN/APPROVE
-	
-
-Users have finished setting up the project and submitted it for administrator approval.
-
-Approved
-	
-
-Disabled
-	
-
-ADMIN/ DISABLE
-	
-
-Administrators have approved the project, ReDBox records have been created and data ingesters have been set-up.
-
-Disabled
-	
-
-Approved
-
-Delete
-	
-
-ADMIN/
-
-ENABLE,
-
-SUPER_ADMIN/ DELETE
-	
-
-Project has been disabled, stopping all ingesters from collecting more data.
-
-Deleted
-	
-	
-	
-
-Project has been deleted, this action is restricted to super administrators.
-
++-----------+------------+------------------+-----------------------------------------------------------------------------------------------------------------------+
+| State     | Transition | Group/Permission | State Description                                                                                                     |
++===========+============+==================+=======================================================================================================================+
+| Open      | Submitted  | CREATOR/SUBMIT   | Project is open for all users with write permission to edit.                                                          |
++-----------+------------+------------------+-----------------------------------------------------------------------------------------------------------------------+
+| Submitted | Open       | Approve          | ADMIN/REOPEN, ADMIN/APPROVE | Users have finished setting up the project and submitted it for administrator approval. |
++-----------+------------+------------------+-----------------------------------------------------------------------------------------------------------------------+
+| Approved  | Disabled   | AMIN/ DISABLE    | Administrators have approved the project, ReDBox records have been created and data ingesters have been set-up.       |
++-----------+------------+------------------+-----------------------------------------------------------------------------------------------------------------------+
+| Disabled  | Approved   | Delete           | ADMIN/ENABLE, SUPER_ADMIN/ DELETE | Project has been disabled, stopping all ingesters from collecting more data.      |
++-----------+------------+------------------+-----------------------------------------------------------------------------------------------------------------------+
+| Deleted   |            |                  | Project has been deleted, this action is restricted to super administrators.                                          |
++-----------+------------+------------------+-----------------------------------------------------------------------------------------------------------------------+
 
 The intended workflow is illustrated below:
 
