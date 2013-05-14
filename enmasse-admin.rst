@@ -271,144 +271,133 @@ EnMaSSe has the following possible states:
 
 The intended workflow is illustrated below:
 
+.. image:: _static/project_states.png
+Figure 1:  Project states and transitions.
+
 The manage data and logs contextual options are only available in the approved state (please refer to the EnMaSSe user guide for more information).
 
 Administrators (and any user with the ADVANCED_FIELDS permission) can view some additional fields that are usually hidden, at the time of writing these included usage rights, other licenses and access rights url (information page).
+
 Editing Page Templates & Text
+-----------------------------
 
 All pages are displayed from a view using form models and templates:
 
-    Views describe what is displayed where and when, they are the logic behind the website.
+- **Views** describe what is displayed where and when, they are the logic behind the website.
+- **Models** are abstractions of both forms/form elements and database tables (the data).
+- **Templates** are what is actually displayed on the screen, they are the human readable representation of data.
+- **Stylesheet** is the CSS stylesheet that makes the templates look good (eg. colours).
 
-    Models are abstractions of both forms/form elements and database tables (the data).
-
-    Templates are what is actually displayed on the screen, they are the human readable representation of data.
-
-    Stylesheet is the CSS stylesheet that makes the templates look good (eg. colours).
-
-
-For changing text in a form you should look at the models section.
-
-To change static text or how things are displayed, look in the templates section.
-
-For menu text or page help, look in the views section.
-
-For styling such as colours, positioning and backgrounds look at stylesheet
+For changing **text in a form** you should look at the **models** section.
+To change **static text** or how things are displayed, look in the **templates** section.
+For **menu text or page help**, look in the **views** section.
+For **styling** such as colours, positioning and backgrounds look at **stylesheets.**
 
 Please note that these files are written in python, HTML and CSS programming languages, you should be able to edit plain text for minor changes but may need developer support for anything more advanced.
+
 Templates
++++++++++
 
 Everything on the provisioning interface is displayed through templates in the <installation directory/src/jcu.dc24.provisioning/jcudc24provisioning/templates>:
 
-    custom_widgets are templates developed for specific situations or pages and aren’t related to the frameworks used (deform).
-
-    widgets are default framework (deform) templates, most have been modified in some way (mostly for placeholder text, help text and descriptions).
-
-    templates in the base directory are individual pages or part of the framework for rendering pages.
-
+- **custom_widgets** are templates developed for specific situations or pages and aren’t related to the frameworks used (deform).
+- **widgets** are default framework (deform) templates, most have been modified in some way (mostly for placeholder text, help text and descriptions).
+- templates in the base directory are individual pages or part of the framework for rendering pages.
 
 custom_widgets and widgets control how form elements are displayed more-so than what is displayed such as a text input is displayed using the help, description and value as provided by the model (eg. text isn’t hard-coded).
 
 Templates in the base directory are mostly hard-coded such that you can directly edit the text seen on the website.
 
 Models (Database & Form)
+++++++++++++++++++++++++
 
 Models are broken into 2 basic classifications:
 
-    Project models are held in src/jcu.dc24.provisioning/jcudc24provisioning/models/project.py and describe how all forms are displayed as well as all project related database tables.
-
-    src/jcu.dc24.provisioning/jcudc24provisioning/models/website.py contain general website forms and database tables (eg. authentication models).
-
+#. Project models are held in **src/jcu.dc24.provisioning/jcudc24provisioning/models/project.py** and describe how all forms are displayed as well as all project related database tables.
+#. **src/jcu.dc24.provisioning/jcudc24provisioning/models/website.py** contains general website forms and database tables (eg. authentication models).
 
 For the most part you should be looking at:
 
-    ca_help/help sets the text or HTML code under the ? symbol for that form element.
-
-    ca_description/description set the text/HTML code that is displayed permanently below form element titles.
-
-    ca_title/title sets the displayed title.
-
-    ca_placeholder/placeholder sets the greyed out text that disappears when clicked.
-
-    ca_force_required makes a form element required.
-
-    If you see ca_child_... it means that this element is a sequence (can add elements by clicking the add button) and the added value will be used on the item added rather than the sequence itself.
-
-    If you see ca_group_... it is grouping this and following elements together (for display purposes) and the set value will be used on the grouping rather than the element itself.
-
+- **ca_help/help** sets the text or HTML code under the ? symbol for that form element.
+- **ca_description/description** set the text/HTML code that is displayed permanently below form element titles.
+- **ca_title/title** sets the displayed title.
+- **ca_placeholder/placeholder** sets the greyed out text that disappears when clicked.
+- **ca_force_required** makes a form element required.
+- If you see ca_child_... it means that this element is a sequence (can add elements by clicking the add button) and the added value will be used on the item added rather than the sequence itself.
+- If you see ca_group_... it is grouping this and following elements together (for display purposes) and the set value will be used on the grouping rather than the element itself.
 
 Specifics of all models and the underlying frameworks is relatively complicated, if you would like more information please refer to the developer guides.
 
-Note: All changes to models won’t take effect until the application is restarted.
+**Note: All changes to models won’t take effect until the application is restarted.**
+
 Views (Display & Logic)
++++++++++++++++++++++++
 
 Views are also split between project pages and general website pages:
 
-    src/jcu.dc24.provisioning/jcudc24provisioning/views/view.py contains general website pages such as the dashboard, login and help.
-
-    src/jcu.dc24.provisioning/jcudc24provisioning/views/workflows.py contains project specific views such as creating new projects, configuring the project and managing project data.
+- **src/jcu.dc24.provisioning/jcudc24provisioning/views/view.py** contains general website pages such as the dashboard, login and help.
+- **src/jcu.dc24.provisioning/jcudc24provisioning/views/workflows.py** contains project specific views such as creating new projects, configuring the project and managing project data.
 
 
 Page help is set by the page_help value passed into self._create_response(page_help=<help>), this value is usually set in a page_help variable at the top of the view.
 
 Menu text for project pages is found at the top of the workflows.py page, contextual options are set in WORKFLOW_ACTIONS and project configuration menus are set in WORKFLOW_STEPS:
 
-    title sets the menu text itself.
-
-    page_title sets the page heading as well as the browser tab text.
-
-    tooltip sets the pop-up text when you hover the mouse over the menu.
-
+- **title** sets the menu text itself.
+- **page_title** sets the page heading as well as the browser tab text.
+- **tooltip** sets the pop-up text when you hover the mouse over the menu.
 
 For more information please refer to the developer guide.
 
-Note: All changes to views won’t take effect until the application is restarted.
+**Note: All changes to views won’t take effect until the application is restarted.**
 
 Stylesheet
+++++++++++
 
 The stylesheet is located at:
 
-src/jcu.dc24.provisioning/jcudc24provisioning/static/template.css.
+	src/jcu.dc24.provisioning/jcudc24provisioning/static/template.css.
 
 Stylesheets are used in almost all websites and there are many CSS guides available on the web for reference.
 
 A quick hint is to right click on the element you want to change and click inspect element or similar (supported in most modern browsers), look for a CSS button and you will see what/how the website elements look is being set.
+
 User Roles & Permissions
+------------------------
 
 By default there are 2 roles available:
 
-    ADMINISTRATOR’s have all permissions except EDIT_PERMISSIONS and DELETE.
-
-    SUPER_ADMIN’s have all permissions.
+- ADMINISTRATOR’s have all permissions except EDIT_PERMISSIONS and DELETE.
+- SUPER_ADMIN’s have all permissions.
 
 
 There are also 2 dynamic roles that aren’t assigned to users:
 
-    AUTHENTICATED is any user that has logged in.
+- AUTHENTICATED is any user that has logged in.
+- CREATOR is the user that created the project.
 
-    CREATOR is the user that created the project.
 
+Default roles, permissions and authentication is configured in **src/jcu.dc24.provisioning/jcudc24provisioning/controllers/authentication.py**.
 
-Default roles, permissions and authentication is configured in src/jcu.dc24.provisioning/jcudc24provisioning/controllers/authentication.py.
-
-Actual permission, rolem user and other authentication databases are located at src/jcu.dc24.provisioning/jcudc24provisioning/models/website.py.
+Actual permission, rolem user and other authentication databases are located at **src/jcu.dc24.provisioning/jcudc24provisioning/models/website.py**.
 
 At the stage of writing there is no user interface for managing user permissions and roles (except the sharing page which are only a subset and per-project).  Configuration will need to be done on the database directly.
+
 Managing Templates
+------------------
 
 There are two types of templates within EnMaSSe as well as standardised fields (or parent data schemas):
 
-    Project templates allow the pre-filling of all data in a project.
-
-    Method templates pre-fill both methods and any datasets associated with them.
-
-    Standardised fields are pre-made data configurations that allow users to select common types of measurements/fields easily.  This not only encourages users to standardise their data but also increases the ease of searching the data portal.
-
+- Project templates allow the pre-filling of all data in a project.
+- Method templates pre-fill both methods and any datasets associated with them.
+- Standardised fields are pre-made data configurations that allow users to select common types of measurements/fields easily.  This not only encourages users to standardise their data but also increases the ease of searching the data portal.
 
 Templates provide administrators a generic way of providing users with partially complete projects and methods/datasets.
 
 The way templates work is by using a preconfigured database entry to pre-fill newly created projects or methods and datasets.
+
 Project Templates
++++++++++++++++++
 
 At the time of writing there is no administration interface for project templates and the database will need to be edited directly.
 
@@ -417,7 +406,9 @@ To make a project into a template a new entry needs to be added to the project_t
 Project templates should have an appropriate name and description and they can be grouped by using the same category.
 
 All fields in the associated project will be pre-filled on any project that uses this template.
+
 Method Templates
+++++++++++++++++
 
 At the time of writing there is no administration interface for method templates and the database will need to be edited directly.
 
@@ -430,6 +421,7 @@ Method templates may also be linked to a dataset.
 All fields in the associated methods and datasets will be pre-filled on any method that uses this template.
 
 Standard Data Configuration Fields
+++++++++++++++++++++++++++++++++++
 
 At the time of writing there is no administration interface for method templates and the database will need to be edited directly.
 
