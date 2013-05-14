@@ -272,6 +272,7 @@ EnMaSSe has the following possible states:
 The intended workflow is illustrated below:
 
 .. image:: _static/project_states.png
+   :align: center
 
 Figure 1:  Project states and transitions.
 
