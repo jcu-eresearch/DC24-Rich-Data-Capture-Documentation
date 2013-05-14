@@ -272,6 +272,7 @@ EnMaSSe has the following possible states:
 The intended workflow is illustrated below:
 
 .. image:: _static/project_states.png
+
 Figure 1:  Project states and transitions.
 
 The manage data and logs contextual options are only available in the approved state (please refer to the EnMaSSe user guide for more information).
