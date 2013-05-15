@@ -9,10 +9,10 @@ Welcome to Environmental Monitoring and Sensor Storage (EnMaSSe) documentation!
 The EnMaSSe documentation is broken into three sections:
 
 - User guide explains the application as a whole, application concepts and how to use it.
-- Administrator guide focuses on installation, expected changes that administrators will need to do and general administration during general usage.
+- Administrator guide focuses on installation, expected changes that administrators will need to do and general administration during normal usage.
 - Developer guide outlines the frameworks and libraries used, the project structure and the technical details behind how it was developed. 
 
-All three guides focus on different areas and it is recommended that they are read in the order explained above.
+*All three guides focus on different areas and it is recommended that they are read in the order explained above.*
 
 
 Contents:
