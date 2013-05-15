@@ -12,7 +12,7 @@ Contents:
    :maxdepth: 2
 
    enmasse-user
-   http://coastalcomms.com.au/portal-user-guide.pdf
+   Using the Data Portal<http://coastalcomms.com.au/portal-user-guide.pdf>
    enmasse-admin
    enmasse-developer  
    reusability
