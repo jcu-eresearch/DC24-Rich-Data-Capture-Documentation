@@ -27,6 +27,9 @@ The provisioning interface is based on a number of frameworks and integration wi
 | Open Layers     | Understanding and customising of embedded maps.                                     | Javascript library used to display maps within the information and datasets pages.                                   |
 +-----------------+-------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+
 
+Framework Modifications
+-----------------------
+
 SQLAlchemy + Deform + ColanderAlchemy
 +++++++++++++++++++++++++++++++++++++
 
@@ -211,6 +214,8 @@ Full integration with the Ingester API has been implemented almost transparently
 
 Shibboleth Authentication
 -------------------------
+**TODO: This section needs updating.**
+
 
 Shibboleth is a federated single sign-on framework that provides secure and controlled authentication, and release of user attributes. Users are redirected to their home organisation identity provider (IdP), where they supply their passwords, and then organisation policies are consulted during the release of the user’s attributes.
 
@@ -253,10 +258,15 @@ Ingester API
 
 Ingester Platform
 =================
+**TODO: This section needs updating.**
 
-**Custom Import Scripts**
+Custom Import Scripts
++++++++++++++++++++++
 
 See Ingester Post Processing Scripts in the Ingester Platform developers guide.
 
-Known Issues and Workarounds
-++++++++++++++++++++++++++++
+Limitations & Future Work
+-------------------------
+
+**TODO: This section needs updating.**
+
