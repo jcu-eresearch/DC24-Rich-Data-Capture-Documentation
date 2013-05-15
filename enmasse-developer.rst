@@ -1,5 +1,5 @@
 =================
-EnMaSSe Developer Documentation
+EnMaSSe Developer Guide
 =================
 
 Contents:
