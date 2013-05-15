@@ -1,5 +1,0 @@
-=================
-Configuring ReDBox Integration
-=================
-
-
