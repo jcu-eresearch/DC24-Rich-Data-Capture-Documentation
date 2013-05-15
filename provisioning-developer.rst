@@ -3,20 +3,20 @@ Developing the Provisioning Interface
 =================
 The provisioning interface is based on a number of frameworks and integration with external components, so the first step to development is gaining a high level understanding of:
 
-.. _Pyramid: http://pyramid.com.au
-.. _Deform: http://pyramid.com.au
-.. _SQLAlchemy: http://pyramid.com.au
-.. _ColanderAlchemy: http://pyramid.com.au
-.. _MySQL: http://pyramid.com.au
-.. _ReDBox: http://pyramid.com.au
-.. _`Ingester API`: ingesterapi-developer.html
-.. _`Tal/Metal`: http://pyramid.com.au
-.. _jQuery: http://pyramid.com.au
-.. _Open Layers: http://pyramid.com.au
-.. _Javascript Layers: http://pyramid.com.au
-.. _`ZPT template`: 
-.. _Fanstatic: 
-.. _`Ingester Platform`: 
+.. _Pyramid: http://www.pylonsproject.org/
+.. _Deform: http://docs.pylonsproject.org/projects/deform/en/latest/
+.. _SQLAlchemy: http://www.sqlalchemy.org/
+.. _ColanderAlchemy: http://colanderalchemy.readthedocs.org/en/latest/
+.. _MySQL: http://www.mysql.com/
+.. _ReDBox: http://www.redboxresearchdata.com.au/
+.. _`Ingester API`: https://github.com/jcu-eresearch/jcu.dc24.ingesterapi
+.. _`Tal/Metal`: http://www.owlfish.com/software/simpleTAL/tal-guide.html 
+.. _jQuery: http://jquery.com/ 
+.. _Open Layers: http://openlayers.org/ 
+.. _Javascript: http://www.w3schools.com/js/ 
+.. _`ZPT template`: http://zpt.sourceforge.net/
+.. _Fanstatic: http://www.fanstatic.org/en/latest/
+.. _`Ingester Platform`: https://github.com/jcu-eresearch/TDH-dc24-ingester-platform
 .. _`Ingester Post Processing Scripts`: ingester-developer.html
 
 +------------------+-------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
