@@ -14,9 +14,6 @@ The EnMaSSe documentation is broken into three sections:
 
 *All three guides focus on different areas and it is recommended that they are read in the order explained above.*
 
-
-Contents:
-
 .. toctree::
    :maxdepth: 2
 
