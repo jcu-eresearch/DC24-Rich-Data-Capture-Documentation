@@ -5,7 +5,7 @@ EnMaSSe User Documentation
 Contents:
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    provisioning-user
    portal-user
