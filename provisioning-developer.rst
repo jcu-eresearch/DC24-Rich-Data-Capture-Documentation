@@ -9,7 +9,7 @@ The provisioning interface is based on a number of frameworks and integration wi
 .. _ColanderAlchemy: http://pyramid.com.au
 .. _MySQL: http://pyramid.com.au
 .. _ReDBox: http://pyramid.com.au
-.. _`Ingester API`: ingesterapi-developer
+.. _`Ingester API`: ingesterapi-developer.html
 .. _`Tal/Metal`: http://pyramid.com.au
 .. _jQuery: http://pyramid.com.au
 .. _Open Layers: http://pyramid.com.au
@@ -17,7 +17,7 @@ The provisioning interface is based on a number of frameworks and integration wi
 .. _`ZPT template`: 
 .. _Fanstatic: 
 .. _`Ingester Platform`: 
-.. _`Ingester Post Processing Scripts`: ingester-developer
+.. _`Ingester Post Processing Scripts`: ingester-developer.html
 
 +------------------+-------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Framework        | Why you need to know?                                                               | Description                                                                                                                                                       |
