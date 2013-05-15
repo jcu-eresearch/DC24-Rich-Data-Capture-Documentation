@@ -44,12 +44,3 @@ Ingester Platform      Internal component of the EnMaSSe application the provide
 Dataset                A collection of data from a method at a set location.
 Method                 A way that data is collected and stored.
 ====================== ==========
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
