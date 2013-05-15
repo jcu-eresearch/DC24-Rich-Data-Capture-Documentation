@@ -1,5 +1,5 @@
 =================
-EnMaSSe Administrator Documentation
+EnMaSSe Administrator Guide
 =================
 
 Overview
