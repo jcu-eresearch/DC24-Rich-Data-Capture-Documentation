@@ -1,5 +1,5 @@
 =================
-EnMaSSe User Documentation
+EnMaSSe User Guide
 =================
 
 There have been great strides in making it easier to share and re-use research data throughout Australia, and EnMaSSe is a tool that takes it one step further.  EnMaSSe is designed to increase the efficiency of creating and sharing research data, which means quicker progress within Australia as a whole, higher potential for new technologies and a better understanding of our environment.
