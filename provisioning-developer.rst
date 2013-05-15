@@ -251,39 +251,3 @@ auEduPersonSharedToken
 
 The final attribute, auEduPersonSharedToken, is a globally unique identifier for the user, and is what is used to link the Shibboleth_ account to the local account, as well as to accounts in other repositories.
 
-Information on Implementing Specific Functionality
---------------------------------------------------
-
-Adding Data Source’s
-++++++++++++++++++++
-
-The most useful and generic data source currently implemented is the PullDataSource, so throughout this explanation we will use it as the example.
-
-Provisioning Interface
-======================
-
-#. Add a new entry to models->project.py->Method->data_sources.
-#. Update the description of models->project.py->Method->data_source.
-#. Copy/Paste models->project.py->PullDataSource and update as needed, this provides the data source configuration options on the datasets page.
-#. Copy/Paste models->project.py->Dataset->pull_data_source and update for your newly created data source type.
-#. Update controllers->ingesterapi_wrapper.py->_create_data_source to convert your new data source configuration to the corresponding `Ingester API`_ data source model you have/will create.
-
-Ingester API
-============
-
-#. Copy/Paste models->data_sources.py->PullDataSource and update with the fields and initialisers that your new data source requires.
-
-Ingester Platform
-=================
-**TODO: This section needs updating.**
-
-Custom Import Scripts
-+++++++++++++++++++++
-
-See `Ingester Post Processing Scripts`_ in the Ingester Platform developers guide.
-
-Limitations & Future Work
--------------------------
-
-**TODO: This section needs updating.**
-
