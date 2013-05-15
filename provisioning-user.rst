@@ -20,6 +20,7 @@ Researchers face many challenges once they decide to share data as there is a la
 
 .. image:: _static/enmasse-overview.png
    :align: center
+   
 *Figure 1:  EnMaSSe Overview*
 
 The important outcomes of the EnMaSSE system are both:
