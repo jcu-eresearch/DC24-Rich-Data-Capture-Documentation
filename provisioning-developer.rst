@@ -246,8 +246,7 @@ This document assumes that Shibboleth_ is already setup on the front end web ser
 - surname
 - commonName
 - email
-
-auEduPersonSharedToken
+- auEduPersonSharedToken
 
 The final attribute, auEduPersonSharedToken, is a globally unique identifier for the user, and is what is used to link the Shibboleth_ account to the local account, as well as to accounts in other repositories.
 
