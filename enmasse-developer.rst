@@ -35,7 +35,7 @@ Other core frameworks used by EnMaSSe include:
 - **UWSGI** is a more efficient web container for Pyramid than alternative HTTP containers.
 - **XMLRPC** is used by the ingesterapi and ingester platform to provide platform independent programming interfaces.
 
-Contents:
+*It is recommended that you read the Ingester API first.*
 
 .. toctree::
    :maxdepth: 2
