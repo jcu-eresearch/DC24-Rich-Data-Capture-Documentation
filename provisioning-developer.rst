@@ -114,58 +114,47 @@ The Provisioning Interface structure is organised as:
 
 - **data** - session data and isn’t used by Provisioning Interface otherwise.
 - **jcudc24provisioning** - contains all Provisioning Interface source code
-- **Views** - all served websites, these are closer to view-controllers though as they contain much of the applications functional code.
-- **Models** - all database and form models.
-- **Controllers** - additional functional code that doesn’t fit in the views, this is mostly code for integrating with other systems.
-- **Scripts** - initialisation command line scripts that are output to the bin folder when the project is deployed.
-- **Static** - static resources such as images, css and javascript/javascript libraries.
-- **css**
-- **images**
-- **libraries** - javascript libraries
-- **scripts** - custom javascript
-- **Templates** - ZPT template files used by Deform widgets and the main website pages.
-- **custom_widgets** - custom, Provisioning Interface specific widget templates
-- **widgets** - customised Deform widget templates.
+    - **Views** - all served websites, these are closer to view-controllers though as they contain much of the applications functional code.
+    - **Models** - all database and form models.
+    - **Controllers** - additional functional code that doesn’t fit in the views, this is mostly code for integrating with other systems.
+    - **Scripts** - initialisation command line scripts that are output to the bin folder when the project is deployed.
+    - **Static** - static resources such as images, css and javascript/javascript libraries.
+        - **css**
+        - **images**
+        - **libraries** - javascript libraries
+        - **scripts** - custom javascript
+    - **Templates** - ZPT template files used by Deform widgets and the main website pages.
+        - **custom_widgets** - custom, Provisioning Interface specific widget templates
+        - **widgets** - customised Deform widget templates.
 - **project_uploads** - Attachments that are uploaded through the provisioning interface pages.
 - **tmp** - temporary files such as for exporting to external systems.
 
 The most relevant files are:
 
-    __init__.py initialises the database, configures all views and sets up authentication.  Look at this view to find out what URL’s associated with views and to add new views.
-
-    resources.py packages static resource files for Fanstatic.
-
-    views->views.py contains all non-project views.
-
-    views->workflows.py contains all project views.
-
-    scripts->initializedb.py populates the database the first time the application starts.
-
-    scripts->create_redbox_config.py creates the XML mapping file for ReDBox integration.
-
-    models->ca_model.py wraps CAModel to provide transparent model-dict-xml conversions.
-
-    models->project.py contains all project related database and/or form models.
-
-    models->website.py contains all non-project database and.or form models.
-
-    controllers->redbox_mint.py is the code that handles the metadata exports to ReDBox.
-
-    controllers->ingesterapi_wrapper.py wraps the Ingester API for transparent use with Provisioning Interface models.
+- **__init__.py** initialises the database, configures all views and sets up authentication.  Look at this view to find out what URL’s associated with views and to add new views.
+- **resources.py** packages static resource files for Fanstatic.
+- **views->views.py** contains all non-project views.
+- **views->workflows.py** contains all project views.
+- **scripts->initializedb.py** populates the database the first time the application starts.
+- **scripts->create_redbox_config.py** creates the XML mapping file for ReDBox integration.
+- **models->ca_model.py** wraps CAModel to provide transparent model-dict-xml conversions.
+- **models->project.py** contains all project related database and/or form models.
+- **models->website.py** contains all non-project database and.or form models.
+- **controllers->redbox_mint.py** is the code that handles the metadata exports to ReDBox.
+- **controllers->ingesterapi_wrapper.py** wraps the Ingester API for transparent use with Provisioning Interface models.
 
 Metadata Records (ReDBox)
+-------------------------
 
 EnMaSSe integrates with ReDBox using the new-alerts harvest system by:
 
-    Creating an XPATH mapping file between the XML export file and ReDBox fields.
-
-    Writing the Provisioning interface Metadata table to an XML file.
-
-    Transferring the XML metadata to the ReDBox server using SFTP.
-
-    Hitting the new-alerts URL which tells ReDBox to run the harvest.
+#. Creating an XPATH mapping file between the XML export file and ReDBox fields.
+#. Writing the Provisioning interface Metadata table to an XML file.
+#. Transferring the XML metadata to the ReDBox server using SFTP.
+#. Hitting the new-alerts URL which tells ReDBox to run the harvest.
 
 Code that handles ReDBox integration in EnMaSSe
++++++++++++++++++++++++++++++++++++++++++++++++
 
 https://github.com/jcu-eresearch/TDH-rich-data-capture/blob/master/jcudc24provisioning/scripts/create_redbox_config.py
 
@@ -178,23 +167,20 @@ to_xml() is what converts the Metadata object to XML.
 https://github.com/jcu-eresearch/TDH-rich-data-capture/blob/master/jcudc24provisioning/models/project.py#LC462
 
 The Metadata() model represents a metadata record, so the provisioning interface sets up all relevant data then just dumps it to an XML file.
+
 How ReDBox is updated to integrate with EnMaSSe:
+++++++++++++++++++++++++++++++++++++++++++++++++
 
 https://github.com/jcu-eresearch/TDH-Research-Data-Catalogue/tree/master/src/main/config/home/harvest/enmasse-alerts
 
 This folder contains the harvester structure:
 
-    New records are placed directly in this folder
-
-    The config folder contains harvester configuration and modifications:
-
-        enmasse-dataset-rules.py is a customised copy of the new-alerts dataset-rules.py file (ID fixes, harvesting directly to published, etc.) which uses the data found with the XMLAlertHandler and adds it to ReDBox correctly.
-
-        enmasse-dataset.json is the configuration file for the harvester.
-
-        enmasseXmlMap.json is the EnMaSSe mapping file generated from scripts->create_redbox_mapping.py.
-
-    Processed harvests go into the ReDBox created .processed folder (not in repo).
+- New records are placed directly in this folder
+- The config folder contains harvester configuration and modifications:
+    - enmasse-dataset-rules.py is a customised copy of the new-alerts dataset-rules.py file (ID fixes, harvesting directly to published, etc.) which uses the data found with the XMLAlertHandler and adds it to ReDBox correctly.
+    - enmasse-dataset.json is the configuration file for the harvester.
+    - enmasseXmlMap.json is the EnMaSSe mapping file generated from scripts->create_redbox_mapping.py.
+- Processed harvests go into the ReDBox created .processed folder (not in repo).
 
 
 https://github.com/redbox-mint/redbox/tree/master/config/src/main/config/home/lib/jython/alertlib
@@ -203,30 +189,28 @@ This is the code base for the new-alerts system.
 
 Also, the system-config.json file needed to be updated with the following 2 sections:
 
-    https://github.com/jcu-eresearch/TDH-Research-Data-Catalogue/blob/master/src/main/config/home/system-config.json#LC372
-
-    https://github.com/jcu-eresearch/TDH-Research-Data-Catalogue/blob/master/src/main/config/home/system-config.json#LC432
+- https://github.com/jcu-eresearch/TDH-Research-Data-Catalogue/blob/master/src/main/config/home/system-config.json#LC372
+- https://github.com/jcu-eresearch/TDH-Research-Data-Catalogue/blob/master/src/main/config/home/system-config.json#LC432
 
 Ingester Platform Integration
+-----------------------------
 
 The Provisioning Interface was developed in conjunction with the Ingester API and Ingester Platform so the database models and functional concepts are very similar.
 
 This has made the integration particularly easy as all communication with the Ingester API maps closely to Provisioning Interface database models and the main steps required are:
 
-    Converting Provisioning Interface models to their associated Ingester API models (the Ingester API models weren’t used directly as the Provisioning Interface requires a lot of additional display information).
-
-    Communicating many associated models at the same time (such as all datasets associated with a project).
+- Converting Provisioning Interface models to their associated Ingester API models (the Ingester API models weren’t used directly as the Provisioning Interface requires a lot of additional display information).
+- Communicating many associated models at the same time (such as all datasets associated with a project).
 
 
 Full integration with the Ingester API has been implemented almost transparently with the controllers->ingesterapi_wrapper.py by extending IngesterPlatformAPI to process Provisioning Interface models passed to it’s method by:
 
-    Using a unit of work to convert the model itself as well as all child models to Ingester API models.
-
-    Providing any mappings of slightly different functionality between the models (such as parsing data source script+parameters into a string).
-
-    Updating Ingester Platform ID’s on the models once the unit of work has successfully been committed.
+- Using a unit of work to convert the model itself as well as all child models to Ingester API models.
+- Providing any mappings of slightly different functionality between the models (such as parsing data source script+parameters into a string).
+- Updating Ingester Platform ID’s on the models once the unit of work has successfully been committed.
 
 Shibboleth Authentication
+-------------------------
 
 Shibboleth is a federated single sign-on framework that provides secure and controlled authentication, and release of user attributes. Users are redirected to their home organisation identity provider (IdP), where they supply their passwords, and then organisation policies are consulted during the release of the user’s attributes.
 
@@ -236,42 +220,43 @@ A Shibboleth enabled website is referred to as a service provider (SP). The fron
 
 This document assumes that Shibboleth is already setup on the front end web server, as configurations and requirements will vary between Shibboleth federations. The protected path within the Provisioning Interface is /login/shibboleth. This SP will require the following attributes:
 
-    firstName
+- firstName
+- surname
+- commonName
+- email
 
-    surname
-
-    commonName
-
-    email
-
-    auEduPersonSharedToken
+auEduPersonSharedToken
 
 The final attribute, auEduPersonSharedToken, is a globally unique identifier for the user, and is what is used to link the Shibboleth account to the local account, as well as to accounts in other repositories.
 
 Information on Implementing Specific Functionality
+--------------------------------------------------
+
 Adding Data Source’s
+++++++++++++++++++++
 
 The most useful and generic data source currently implemented is the PullDataSource, so throughout this explanation we will use it as the example.
+
 Provisioning Interface
+======================
 
-    Add a new entry to models->project.py->Method->data_sources.
-
-    Update the description of models->project.py->Method->data_source.
-
-    Copy/Paste models->project.py->PullDataSource and update as needed, this provides the data source configuration options on the datasets page.
-
-    Copy/Paste models->project.py->Dataset->pull_data_source and update for your newly created data source type.
-
-    Update controllers->ingesterapi_wrapper.py->_create_data_source to convert your new data source configuration to the corresponding Ingester API data source model you have/will create.
+#. Add a new entry to models->project.py->Method->data_sources.
+#. Update the description of models->project.py->Method->data_source.
+#. Copy/Paste models->project.py->PullDataSource and update as needed, this provides the data source configuration options on the datasets page.
+#. Copy/Paste models->project.py->Dataset->pull_data_source and update for your newly created data source type.
+#. Update controllers->ingesterapi_wrapper.py->_create_data_source to convert your new data source configuration to the corresponding Ingester API data source model you have/will create.
 
 Ingester API
+============
 
-    Copy/Paste models->data_sources.py->PullDataSource and update with the fields and initialisers that your new data source requires.
-
-
+#. Copy/Paste models->data_sources.py->PullDataSource and update with the fields and initialisers that your new data source requires.
 
 Ingester Platform
-Custom Import Scripts
+=================
+
+**Custom Import Scripts**
 
 See Ingester Post Processing Scripts in the Ingester Platform developers guide.
+
 Known Issues and Workarounds
+++++++++++++++++++++++++++++
