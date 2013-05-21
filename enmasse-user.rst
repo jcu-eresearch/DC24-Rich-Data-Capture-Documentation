@@ -99,7 +99,7 @@ But not only is data backups and redundancy important, it is also important to m
 This section introduces a number of complications that occur when working with data and provides more information on the concepts behind how to configure data ingestion.
 
 Data Sources
-------------
+++++++++++++
 
 Data sources are ways of getting data into the system and how that data should be processed to fit the data configuration.
 
@@ -119,7 +119,7 @@ Data sources aren’t conceptually too difficult they just need to get the data 
 The complicated part is that a custom Python script is needed to do the processing (Requires a developer/programmer), so most users will need to enter a description of their processing needs for the administrators to help with.
 
 Data Configuration
-------------------
+++++++++++++++++++
 
 Data configuration is about storing your data as efficiently as possible and identifying which fields potential users will want to search on.  
 
