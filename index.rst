@@ -18,7 +18,7 @@ The EnMaSSe documentation is broken into three sections:
    :maxdepth: 2
 
    enmasse-user
-   Using the Data Portal<http://coastalcomms.com.au/portal-user-guide.pdf>
+   Using the Data Portal<http://portal.coastalcoms.com/docs/data-portal-manual-latest.pdf>
    enmasse-admin
    enmasse-developer  
 
