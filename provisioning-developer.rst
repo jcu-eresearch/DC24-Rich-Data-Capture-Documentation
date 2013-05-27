@@ -231,12 +231,8 @@ Full integration with the `Ingester API`_ has been implemented almost transparen
 
 Shibboleth Authentication
 -------------------------
-**TODO: This section needs updating.**
-
 
 Shibboleth_ is a federated single sign-on framework that provides secure and controlled authentication, and release of user attributes. Users are redirected to their home organisation identity provider (IdP), where they supply their passwords, and then organisation policies are consulted during the release of the user’s attributes.
-
-SHIB DIAGRAM
 
 A Shibboleth_ enabled website is referred to as a service provider (SP). The front end webserver such as IIS or Apache HTTPD, provides a number of Shibboleth end points that are used to communicate from the IdP to the SP. Once the Shibboleth_ session is established authentication and attributes can be passed to back end application servers by securing a path with Shibboleth_. The attributes can be passed as environment variables or HTTP headers, however the EnMaSSe provisioning interface only supports the use of HTTP headers. Note, this assumes that the connection between the front end web server and the back end application server is secure. In particular, direct access to the application server must be blocked to prevent fake HTTP headers being injected.
 
