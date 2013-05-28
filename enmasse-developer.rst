@@ -108,3 +108,4 @@ Limitations & Future Work
 - Cannot add new methods to an active project.
 - User must close browser to logout from shibboleth
 - Using UTF-8 special characters can cause unexpected issues throughout the system because strings are read from the DB as str, not unicode.
+- If the only data configuration is a single parent, use that parent schema directly.
