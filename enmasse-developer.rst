@@ -82,6 +82,7 @@ Limitations & Future Work
 -------------------------
 
 **TODO: This section needs updating.**
+
 - write on duplicate/identical locations and schemas & concepts behind using same model vs enforcing all to be different.
 - User widget re-write to allow for NLA/Trove lookup + better searching + affiliation select.
 - Dashboard page with alerts/notifications
