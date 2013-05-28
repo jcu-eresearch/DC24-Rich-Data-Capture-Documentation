@@ -74,6 +74,8 @@ Ingester Platform
 Custom Import Scripts
 +++++++++++++++++++++
 
+
+:doc:`ingesterapi-developer </ingester-post-processing-scripts>`
 See `Ingester Post Processing Scripts`_ in the Ingester Platform developers guide.
 
 Limitations & Future Work
