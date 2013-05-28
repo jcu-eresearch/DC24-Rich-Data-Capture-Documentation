@@ -75,7 +75,7 @@ Custom Import Scripts
 +++++++++++++++++++++
 
 
-:doc:`ingester-post-processing-scripts`
+.. _`ingester-post-processing-scripts`: 'https://tdh-rich-data-capture-documentation.readthedocs.org/en/latest/ingester-developer.html#ingester-post-processing-scripts'
 See `Ingester Post Processing Scripts`_ in the Ingester Platform developers guide.
 
 Limitations & Future Work
