@@ -81,32 +81,33 @@ See `Ingester Post Processing Scripts`_ in the Ingester Platform developers guid
 Limitations & Future Work
 -------------------------
 
-**TODO: This section needs updating.**
+Here is a list of features and bugs that could be further developed:
 
-- write on duplicate/identical locations and schemas & concepts behind using same model vs enforcing all to be different.
-- User widget re-write to allow for NLA/Trove lookup + better searching + affiliation select.
+- Currently each method has a unique schema and each dataset has a unique location, even if they are identical with others.  It would improve searchability and in some ways make more sense for identical schemas/locations to reuse the same schema/location. 
+   - There are some difficulties with this such as what if a user edits the schema for one methd.
+   - What may work best is to use the same schema/location once submitted and approved (as they can't be changed after that).
+- User widget re-write to allow for NLA/Trove lookup + better searching + affiliation select.  Currently only JCU users in the Mint name authority are supported.
 - Dashboard page with alerts/notifications
 - Adminstrator page (roles/permissions, create/edit templates & standardised fields).
-- Reading of licenses directly from ReDBox (currently hard-coded).
-- Refactor code to import all text from resource files
-- Drag-n-drop data configuration widget.
-- Move some data source configurations to methods page (has pros & cons)
-- Synchronise/validate provisioning and ingester schemas
+- Reading of licenses directly from ReDBox (they are currently hard-coded).
+- Refactor code to import all text from resource files - this may improve the ease of administration/installation for new users.
+- Drag-n-drop data configuration widget, it would be nice to mke the data configuration more intuitive, perhaps by minimising all fields except the one currently being edited + real time display of the generated form.
+- Synchronise/validate provisioning and ingester schemas (make sure they are the same).
 - Provisioning-ingester implementation of regions
 - Breif description appears after full description in ReDBox records
 - History for all fields in provisioning.
-- Indication that submit page is working when approved.
-- Diazo
-- Add to docs: Limitation of parent schemas only allowing a parent to be extended once -> unit types (eg temp, humidity, etc.) could be implemented for better searching support.
+- Progress indicator that the submit page is still working when it is approved.
+- Use Diazo for theming the website.
+- Limitation of parent schemas only allowing a parent to be extended once (only 1 level of parents)
+- unit types (eg temp, humidity, etc.) could be implemented for better searching support and replace the current purpose of parent schemas.
 - Help and description printable for all workflow pages.
-- (Decision has been made to drop this!) Data Turbine
-- Trying to approve 2 projects at the same time may cause timeout errors (I don't anticipate this occuring too often but it is a bug).
+- (Needs testing, a fix was implemented) Trying to approve 2 projects at the same time may cause timeout errors (I don't anticipate this occuring too often but it is a bug).
 - Attachments don't export to ReDBox
 - Refactor searching/browsing/manage data into a restful framework - The view functions should be easy to convert to JSON based views if this is required.
-- I beleive it would be useful to provide searching based on parties involved and locations
+- I beleive it would be useful to provide searching based on parties involved and locations within the data management sections
 - Use templates for notification emails.
 - Cannot add new methods to an active project.
 - User must close browser to logout from shibboleth
-- Using UTF-8 special characters can cause unexpected issues throughout the system because strings are read from the DB as str, not unicode.
+- (Be aware) Using UTF-8 special characters can cause unexpected issues throughout the system because strings are read from the DB as str, not unicode.
 - If the only data configuration is a single parent, use that parent schema directly.
 - Only 1 default DataEntry and Dataset calibration is supported.
