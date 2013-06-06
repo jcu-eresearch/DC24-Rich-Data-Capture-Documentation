@@ -706,12 +706,18 @@ Project Notes
 Managing & Searching Data
 -------------------------
 
-There will be the following pages/functionality:
+Projects, datasets and data can be searched and edited through the Browse Data page (accessed through the Browse Data menu item along the top):
 
-- Search projects/datasets/data entry’s
-- View datasets with some options to edit data source
-- View/edit/add data entry’s
-- Each step will use the contextual menu to navigate between each other (eg. when on the datasets page you can click to view the project or click to view all associated data enties).
+- You can specify your search criteria in the left hand sidebar, this includes the search type, ID list, string/keywords, state and dates.  Each search criteria further filters the results.
+- The buttons along the top of the page alow you to perform actions on multiple search results (eg. enable all selected datasets).
+- The dropdown/multi-select boxes along the top-right allow you to order your search results.
+- Each result can be selected by clicking the checkbox on it's left.
+- Each search result has actions on the right hand side.
+
+.. image:: _static/manage_data.png
+   :align: center
+
+*Figure 8:  Screenshot of the browse data page wich provides data management and searching features.*
 
 Project Lifecycle
 -----------------
@@ -719,7 +725,7 @@ Project Lifecycle
 .. image:: _static/project-lifecycle.png
    :align: center
 
-*Figure 8:  Project life cycle*
+*Figure 9:  Project life cycle*
 
 Projects in the EnMaSSe system follow the life cycle illustrated in figure X above, generally you will only need to submit the project for administrator approval, but the whole process has been illustrated here for completeness.
 
