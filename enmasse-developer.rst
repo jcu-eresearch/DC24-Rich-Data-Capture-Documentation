@@ -78,6 +78,21 @@ Custom Import Scripts
 .. _`Ingester Post Processing Scripts`: https://tdh-rich-data-capture-documentation.readthedocs.org/en/latest/ingester-developer.html#ingester-post-processing-scripts
 See `Ingester Post Processing Scripts`_ in the Ingester Platform developers guide.
 
+Adding New Custom Field Types for Data Configuration
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+#. Add the new field type value and name to models/project.py->field_types
+#. Update controllers/method_schema_scripts.py->get_schema_fields() to create the correct:
+   
+   - field type
+   - python type
+   - widget
+   
+#. Update controllers/ingesterapi_wrapper.py->process_schema() so that the new field type is mapped to the ingester platform correctly.
+
+Note: Please refer to the ingester platform documentation and source code for adding new data types to the ingester platform.
+
+
 Limitations & Future Work
 -------------------------
 
